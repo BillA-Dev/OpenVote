@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C45CFD927E4DFC800BBD7F0 /* avenir_ff in Resources */ = {isa = PBXBuildFile; fileRef = 5C45CFD827E4DFC800BBD7F0 /* avenir_ff */; };
+		5C45CFDD27E4E08E00BBD7F0 /* firstPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45CFDC27E4E08E00BBD7F0 /* firstPage.swift */; };
+		5C45CFDF27E4E0BB00BBD7F0 /* secondScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45CFDE27E4E0BB00BBD7F0 /* secondScreen.swift */; };
+		5C45CFE127E4E0C800BBD7F0 /* thirdScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45CFE027E4E0C800BBD7F0 /* thirdScreen.swift */; };
+		5C45CFE327E4E0DC00BBD7F0 /* fourthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45CFE227E4E0DC00BBD7F0 /* fourthScreen.swift */; };
+		5C45CFE527E4E12000BBD7F0 /* progressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45CFE427E4E12000BBD7F0 /* progressCircle.swift */; };
+		5C45CFE727E4E20700BBD7F0 /* globalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45CFE627E4E20700BBD7F0 /* globalVariables.swift */; };
+		5C45CFE927E54DB400BBD7F0 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45CFE827E54DB400BBD7F0 /* AnimationView.swift */; };
 		5C7A8B9F27E3C71E002912C2 /* OpenVoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A8B9E27E3C71E002912C2 /* OpenVoteApp.swift */; };
 		5C7A8BA127E3C71E002912C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A8BA027E3C71E002912C2 /* ContentView.swift */; };
 		5C7A8BA327E3C726002912C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C7A8BA227E3C726002912C2 /* Assets.xcassets */; };
@@ -14,6 +22,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C45CFD827E4DFC800BBD7F0 /* avenir_ff */ = {isa = PBXFileReference; lastKnownFileType = folder; name = avenir_ff; path = ../../../../Desktop/avenir_ff; sourceTree = "<group>"; };
+		5C45CFDA27E4DFEA00BBD7F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5C45CFDC27E4E08E00BBD7F0 /* firstPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstPage.swift; sourceTree = "<group>"; };
+		5C45CFDE27E4E0BB00BBD7F0 /* secondScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondScreen.swift; sourceTree = "<group>"; };
+		5C45CFE027E4E0C800BBD7F0 /* thirdScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdScreen.swift; sourceTree = "<group>"; };
+		5C45CFE227E4E0DC00BBD7F0 /* fourthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fourthScreen.swift; sourceTree = "<group>"; };
+		5C45CFE427E4E12000BBD7F0 /* progressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = progressCircle.swift; sourceTree = "<group>"; };
+		5C45CFE627E4E20700BBD7F0 /* globalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globalVariables.swift; sourceTree = "<group>"; };
+		5C45CFE827E54DB400BBD7F0 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		5C7A8B9B27E3C71E002912C2 /* OpenVote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenVote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C7A8B9E27E3C71E002912C2 /* OpenVoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenVoteApp.swift; sourceTree = "<group>"; };
 		5C7A8BA027E3C71E002912C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +49,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C45CFDB27E4E06C00BBD7F0 /* TutorialScreens */ = {
+			isa = PBXGroup;
+			children = (
+				5C45CFDC27E4E08E00BBD7F0 /* firstPage.swift */,
+				5C45CFDE27E4E0BB00BBD7F0 /* secondScreen.swift */,
+				5C45CFE027E4E0C800BBD7F0 /* thirdScreen.swift */,
+				5C45CFE227E4E0DC00BBD7F0 /* fourthScreen.swift */,
+				5C45CFE427E4E12000BBD7F0 /* progressCircle.swift */,
+			);
+			path = TutorialScreens;
+			sourceTree = "<group>";
+		};
 		5C7A8B9227E3C71D002912C2 = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +80,15 @@
 		5C7A8B9D27E3C71E002912C2 /* OpenVote */ = {
 			isa = PBXGroup;
 			children = (
+				5C45CFDB27E4E06C00BBD7F0 /* TutorialScreens */,
+				5C45CFDA27E4DFEA00BBD7F0 /* Info.plist */,
+				5C45CFD827E4DFC800BBD7F0 /* avenir_ff */,
 				5C7A8B9E27E3C71E002912C2 /* OpenVoteApp.swift */,
 				5C7A8BA027E3C71E002912C2 /* ContentView.swift */,
 				5C7A8BA227E3C726002912C2 /* Assets.xcassets */,
 				5C7A8BA427E3C726002912C2 /* Preview Content */,
+				5C45CFE627E4E20700BBD7F0 /* globalVariables.swift */,
+				5C45CFE827E54DB400BBD7F0 /* AnimationView.swift */,
 			);
 			path = OpenVote;
 			sourceTree = "<group>";
@@ -126,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C7A8BA627E3C726002912C2 /* Preview Assets.xcassets in Resources */,
+				5C45CFD927E4DFC800BBD7F0 /* avenir_ff in Resources */,
 				5C7A8BA327E3C726002912C2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +172,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C45CFE527E4E12000BBD7F0 /* progressCircle.swift in Sources */,
 				5C7A8BA127E3C71E002912C2 /* ContentView.swift in Sources */,
+				5C45CFE727E4E20700BBD7F0 /* globalVariables.swift in Sources */,
+				5C45CFE327E4E0DC00BBD7F0 /* fourthScreen.swift in Sources */,
+				5C45CFDF27E4E0BB00BBD7F0 /* secondScreen.swift in Sources */,
+				5C45CFE127E4E0C800BBD7F0 /* thirdScreen.swift in Sources */,
+				5C45CFE927E54DB400BBD7F0 /* AnimationView.swift in Sources */,
 				5C7A8B9F27E3C71E002912C2 /* OpenVoteApp.swift in Sources */,
+				5C45CFDD27E4E08E00BBD7F0 /* firstPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +314,7 @@
 				DEVELOPMENT_TEAM = 883DK65VTV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenVote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -301,6 +344,7 @@
 				DEVELOPMENT_TEAM = 883DK65VTV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenVote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

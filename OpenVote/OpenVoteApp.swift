@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct OpenVoteApp: App {
+    @StateObject var envObj = GlobalVariables()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView().environmentObject(envObj)
+            AnimationView()
         }
     }
 }
