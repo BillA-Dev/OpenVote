@@ -14,6 +14,7 @@ struct OpenVoteApp: App {
         WindowGroup {
             //ContentView().environmentObject(envObj)
             AnimationView()
+                .environmentObject(envObj)
         }
     }
 }

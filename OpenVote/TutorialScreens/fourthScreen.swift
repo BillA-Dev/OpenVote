@@ -23,7 +23,7 @@ struct fourthScreen: View {
                     
                     Image(systemName: "photo").resizable()
                         .foregroundColor(Color.gray).frame(width: 50, height: 50).padding().aspectRatio(1.0, contentMode: .fit)
-             
+                    
                 }
             }
             
@@ -32,7 +32,7 @@ struct fourthScreen: View {
             
             HStack{
                 Spacer()
-
+                
                 progressCircle(enterColor: gray)
                 progressCircle(enterColor: gray)
                 progressCircle(enterColor: gray)
@@ -43,17 +43,90 @@ struct fourthScreen: View {
             HStack{
                 Button(action: {
                     clickedIndex.indexClicked = 3
+                    //Test API Here
+                    
+                    //apiTesting()
+                    dictTesting()
+                    
+                    
                 }){
-                Text("Skip").foregroundColor(Color(red: 0.035, green: 0.098, blue: 0.159)).bold()
+                    Text("Skip").foregroundColor(Color(red: 0.035, green: 0.098, blue: 0.159)).bold()
                 }
                 Image(systemName: "arrow.right").foregroundColor(Color(red: 0.0, green: 0.4392156862745098, blue: 0.7529411764705882, opacity: 1.0))
             }.padding()
         }
     }
+    
+    func dictTesting(){
+        print("called")
+        var d: [String: Any] = [:]
+        d.isJsonParsed = true
+        print(d.isJsonParsed)
+    }
+    func apiTesting(){
+        
+        
+        
+        let url = "http://www.opensecrets.org/api/?method=getLegislators&id=MN&apikey=b0f47bbe92e5b258caff59c39549a474&output=json"
+        
+        
+        
+        URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in
+            do {
+                // make sure this JSON is in the format we expect
+                //https://www.advancedswift.com/swift-json-without-swiftyjson/
+                //https://stackoverflow.com/questions/25475463/how-to-access-deeply-nested-dictionaries-in-swift
+                
+                let dict = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: AnyObject]
+                
+                let x = dict["response"]!["legislator"]!! as! NSArray
+                for l in x{
+                    let dictWithInfo = (l as! NSDictionary)["@attributes"] as! NSDictionary
+                  
+                    print(dictWithInfo["firstlast"] as! String)
+                    print("     \(dictWithInfo["party"] as! String)")
+                    
+                }
+                
+                
+            } catch let error as NSError {
+                print("Failed to load: \(error.localizedDescription)")
+            }
+        }.resume()
+        
+        
+    }
 }
 
+
+extension Dictionary{
+    
+   // private var json: Bool
+    
+    
+//    var isJsonParsed: Bool {
+//        get {
+//          
+//        }
+//        set(newValue) {
+//           return newValue
+//        }
+//    }
+    
+    
+    
+    
+    
+}
+protocol JSONDICT{
+    var isJsonParsed: Bool {get set}
+}
 struct fourthScreen_Previews: PreviewProvider {
     static var previews: some View {
         fourthScreen()
     }
 }
+
+
+
+

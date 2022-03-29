@@ -12,7 +12,10 @@ struct AnimationView: View {
     @State var opacity: Double = 0.0
     @State var logoopacity: Double = 0.0
     
+    @State var isNotPresented: Bool = false
+    
     var body: some View {
+       
         ZStack{
             VStack{
                 HStack{
@@ -35,6 +38,11 @@ struct AnimationView: View {
                             let _ = DispatchQueue.main.asyncAfter(deadline: .now() + (0.5 + 1.5)){
                                 opacity = 1.0
                                 logoopacity = 1.0
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.9){
+                                    isNotPresented = true
+                                }
+                               
+                                
                             }
                             
                             
@@ -50,7 +58,12 @@ struct AnimationView: View {
                 
                 Image("logo").padding().opacity(logoopacity).animation(.easeIn(duration: 0.9), value: logoopacity)
             }
+        }.sheet(isPresented: $isNotPresented, onDismiss: nil){
+            ContentView() //Tutorial View
+                .interactiveDismissDisabled(true)
         }
+        
+        
     }
 }
 
