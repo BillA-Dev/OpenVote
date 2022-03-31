@@ -45,9 +45,7 @@ struct fourthScreen: View {
                     clickedIndex.indexClicked = 3
                     //Test API Here
                     
-                    //apiTesting()
-                    dictTesting()
-                    
+                    apiTesting()
                     
                 }){
                     Text("Skip").foregroundColor(Color(red: 0.035, green: 0.098, blue: 0.159)).bold()
@@ -57,12 +55,6 @@ struct fourthScreen: View {
         }
     }
     
-    func dictTesting(){
-        print("called")
-        var d: [String: Any] = [:]
-        d.isJsonParsed = true
-        print(d.isJsonParsed)
-    }
     func apiTesting(){
         
         
@@ -98,29 +90,6 @@ struct fourthScreen: View {
     }
 }
 
-
-extension Dictionary{
-    
-   // private var json: Bool
-    
-    
-//    var isJsonParsed: Bool {
-//        get {
-//          
-//        }
-//        set(newValue) {
-//           return newValue
-//        }
-//    }
-    
-    
-    
-    
-    
-}
-protocol JSONDICT{
-    var isJsonParsed: Bool {get set}
-}
 struct fourthScreen_Previews: PreviewProvider {
     static var previews: some View {
         fourthScreen()
