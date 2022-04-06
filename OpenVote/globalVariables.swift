@@ -9,4 +9,10 @@ import Foundation
 
 class GlobalVariables: ObservableObject{
     @Published var indexClicked: Int = 0
+    @Published var searchText: String = ""
+    @Published var nameArr: [String] = []
+    @Published var filteredNameArr: [String] = []
+    
+    
+    @Published var tutorialSkipped: Bool = false
 }
