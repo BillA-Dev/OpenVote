@@ -3,7 +3,7 @@
 //  OpenVote
 //
 //  Created by 90310148 on 3/18/22.
-//Commit Test
+//
 
 import SwiftUI
 
