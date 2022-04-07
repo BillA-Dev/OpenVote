@@ -40,7 +40,7 @@
 <details align="center">
   <summary>Table of Contents</summary>
     <li><a href="#about-openvote">About OpenVote</a></li>
-    <li><a href="#version-history">Version History</a></li>
+    <li><a href="#versions">Versions</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -49,8 +49,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About OpenVote
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -64,9 +62,11 @@
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- Version History -->
-## Version History
+## Versions
 
-### Version 0.1
+### Version History
+
+#### Version 0.1.1
 - Opening animation
 - Tutorial sequence
 - Navigation bar design + icons
@@ -75,50 +75,49 @@
     - Searchable
     - Includes party, PAC, and expenditure information
 
+### Project Roadmap
+#### Versions 0.1 - 0.2
+- Homepage, candidate view, chart view, and PAC view screens
+- Onboarding screens revamp
+- Skeleton loading
+- Implementing user feedback
+  - Recent Activity screen readability improvements
+  - Recent Activity screen filter
+
 See the [open issues](https://github.com/BillA-Dev/OpenVote/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such a great place to learn and create. We appreciate your feedback and contributions, and we encourage you to follow the instructions below to make your voice heard!
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+If you have a suggestion that would make OpenVote better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+  Instructions:
+  1. Fork the Project
+  2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+  3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+  4. Push to the Branch (`git push origin feature/AmazingFeature`)
+  5. Open a Pull Request
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!-- LICENSE
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Thank you! Don't forget to leave a star.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
--->
-
 
 <!-- CONTACT -->
 ## Contact
 
-Lucas Wagner: lwagner.mn@gmail.com / [Github](https://github.com/LucasDWagner) / [LinkedIn](www.linkedin.com/in/lucaswagner-mn)
-<br>
-Bilal Ahmed: [Github](https://github.com/BillA-Dev)
+Name | Email | GitHub | Other
+---- | ----- | ------ | ---- 
+Lucas Wagner | lwagner.mn@gmail.com | [GitHub](https://github.com/LucasDWagner) | [LinkedIn](www.linkedin.com/in/lucaswagner-mn)
+Bilal Ahmed | | [GitHub](https://github.com/BillA-Dev) |
 
 **Project Link:** [https://github.com/BillA-Dev/OpenVote](https://github.com/BillA-Dev/OpenVote)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
@@ -128,9 +127,10 @@ Bilal Ahmed: [Github](https://github.com/BillA-Dev)
 * [Quassum's SVG to SwiftUI Tool](https://github.com/quassum/SVG-to-SwiftUI)
 * [Maksim Petriv's SwiftUI Inspector Plugin](https://www.figma.com/community/plugin/784879032180068427/SwiftUI-Inspector)
 
+<br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">OpenVote</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
