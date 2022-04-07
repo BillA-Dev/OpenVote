@@ -1,5 +1,3 @@
-# OpenVote
-
 <div id="top"></div>
 
 
@@ -16,14 +14,14 @@
 <!-- Project logo -->
 <br />
 <div align="center">
-  <a href="https://github.com/BillA-Dev/OpenVote">
-    <img src="https://user-images.githubusercontent.com/59670355/162052156-2dd53def-bea6-4024-bc22-d0f6345abe7f.png" alt="Logo" width="200" height="200">
+  <h1 align="center">OpenVote</h1>
+  <a href="https://github.com/BillA-Dev/OpenVote"> 
+    <img src="https://user-images.githubusercontent.com/59670355/162226097-a3c67b0c-bde8-4e54-9df1-3abeb9155953.png" alt="OpenVote Logo" width="200" height="200">
   </a>
 
-<h2 align="center">OpenVote</h3>
-
   <p align="center">
-    Thanks for stopping by, and welcome to OpenVote!
+      <br>
+    Welcome, and thanks for stopping by!
     <br>
     Learn more about our project below.
     <br />
@@ -33,28 +31,20 @@
     <a href="https://github.com/BillA-Dev/OpenVote/issues">Report Bug</a>
     ·
     <a href="https://github.com/BillA-Dev/OpenVote/issues">Request Feature</a>
-
+  <br>
+  <br />
 </div>
 
 
 <!-- TABLE OF CONTENTS -->
-<details>
+<details align="center">
   <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-openvote">About OpenVote</a>
-      <ul>
-        <li><a href="#our-mission">Our Mission</a></li>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
+    <li><a href="#about-openvote">About OpenVote</a></li>
     <li><a href="#version-history">Version History</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
 </details>
-
 
 
 <!-- ABOUT THE PROJECT -->
@@ -120,7 +110,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Lucas Wagner: lwagner.mn@gmail.com / [Github](https://github.com/MonsieurBlueSky) / [LinkedIn](www.linkedin.com/in/lucaswagner-mn)
+Lucas Wagner: lwagner.mn@gmail.com / [Github](https://github.com/LucasDWagner) / [LinkedIn](www.linkedin.com/in/lucaswagner-mn)
+<br>
 Bilal Ahmed: [Github](https://github.com/BillA-Dev)
 
 **Project Link:** [https://github.com/BillA-Dev/OpenVote](https://github.com/BillA-Dev/OpenVote)
@@ -132,9 +123,10 @@ Bilal Ahmed: [Github](https://github.com/BillA-Dev)
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [OpenSecrets](https://www.opensecrets.org)
-* []()
-* []()
+* [OpenSecrets API](https://www.opensecrets.org)
+* [Jenn Nelson (project advisor)](https://github.com/jnelsonep)
+* [Quassum's SVG to SwiftUI Tool](https://github.com/quassum/SVG-to-SwiftUI)
+* [Maksim Petriv's SwiftUI Inspector Plugin](https://www.figma.com/community/plugin/784879032180068427/SwiftUI-Inspector)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
