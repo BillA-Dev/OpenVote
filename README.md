@@ -49,10 +49,18 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About OpenVote
+### Our Mission
+OpenVote is a project dedicated to increasing transparency in American political spending, allowing voters to hold their elected officials accountable. Special interest money is at the heart of our government's dysfunction — it often dictates what issues are addressed and who benefits from Congress's solutions. But it doesn't have to be that way.
+
+While legislative and judicial reform are the long-term solution to addressing lobbying's corrupting influence, in the mean time, it's our responsibity to know _how_ our representatives choose to respond to lobbyists. While some may refuse special interest money, many let it impact everything from their tweets to their vote.
+
+With OpenVote, you'll be able to track who your representative is accepting money from — and how often and how much. Our visual presentation of data and intuitive UI aim to make it easy to find that information, because we don't think that anyone should have to look through government databases to see if a candidate should earn their support vote for re-election.
+
+Regardless of what your number one issue in politics is, we ask that you make campaign finance reform your number two.
+
+_More information about our data, including resources to learn about campaign finance reform, will be published here._
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-### Our Mission
 
 ### Built With
 
@@ -75,6 +83,8 @@
     - Searchable
     - Includes party, PAC, and expenditure information
 
+![v0 1 1mockups](https://user-images.githubusercontent.com/59670355/162287216-bdb163b4-b6f0-48b6-8309-0f6fb865ad03.png)
+
 ### Project Roadmap
 #### Versions 0.1 - 0.2
 - Homepage, candidate view, chart view, and PAC view screens
@@ -84,7 +94,7 @@
   - Recent Activity screen readability improvements
   - Recent Activity screen filter
 
-See the [open issues](https://github.com/BillA-Dev/OpenVote/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/BillA-Dev/OpenVote/issues) for a full list of proposed features and known issues.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -103,7 +113,7 @@ If you have a suggestion that would make OpenVote better, please fork the repo a
   4. Push to the Branch (`git push origin feature/AmazingFeature`)
   5. Open a Pull Request
 
-Thank you! Don't forget to leave a star.
+**Thank you! Don't forget to leave a star.**
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
