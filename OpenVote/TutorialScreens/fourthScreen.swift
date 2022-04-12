@@ -46,6 +46,8 @@ struct fourthScreen: View {
                     //Test API Here
                     
                     clickedIndex.tutorialSkipped = true
+                   
+                    UserDefaults.standard.set(true, forKey: "hasDoneTut")
                  
                     
                     

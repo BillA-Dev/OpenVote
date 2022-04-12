@@ -14,6 +14,8 @@ struct AnimationView: View {
     
     @State var isNotPresented: Bool = false
     
+    @EnvironmentObject var globalVar: GlobalVariables
+    
     var body: some View {
        
         ZStack{
@@ -39,7 +41,15 @@ struct AnimationView: View {
                                 opacity = 1.0
                                 logoopacity = 1.0
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.9){
-                                    isNotPresented = true
+                                    //IF ALREADY CLICKED IS NOT PRESENTED SKIP
+                                    let checked = UserDefaults.standard.bool(forKey: "hasDoneTut")
+                                    
+                                    if checked{
+                                        globalVar.tutorialSkipped = true
+                                    }else{
+                                        isNotPresented = true
+                                    }
+                                    
                                 }
                                
                                 
@@ -48,15 +58,15 @@ struct AnimationView: View {
                             
                             
                             
-                        }.animation(.easeIn(duration: 1.5), value: startingOffset)
-                        .animation(.easeIn(duration: 0.6), value: opacity)
+                        }.animation(.easeInOut(duration: 1.5), value: startingOffset)
+                        .animation(.easeInOut(duration: 0.6), value: opacity)
                        
                     
                     
                 }
                 //Lightmode logo
                 
-                Image("logo").padding().opacity(logoopacity).animation(.easeIn(duration: 0.9), value: logoopacity)
+                Image("logo").padding().opacity(logoopacity).animation(.easeInOut(duration: 0.9), value: logoopacity)
             }
         }.sheet(isPresented: $isNotPresented, onDismiss: nil){
             ContentView() //Tutorial View

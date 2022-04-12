@@ -23,9 +23,8 @@ struct OpenVoteApp: App {
                 AnimationView()
                 .environmentObject(envObj)
             }
-            //ContentView().environmentObject(envObj)
-//            AnimationView()
-//              .environmentObject(envObj)
+           // ActivityView().environmentObject(envObj)
+
           
         }
     }
