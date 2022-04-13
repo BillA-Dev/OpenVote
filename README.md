@@ -73,7 +73,6 @@ _More information about our data, including resources to learn about campaign fi
 ## Versions
 
 ### Version History
-PA
 #### Version 0.1.1
 - Opening animation
 - Tutorial sequence
