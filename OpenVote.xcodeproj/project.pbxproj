@@ -15,6 +15,7 @@
 		5C45CFE527E4E12000BBD7F0 /* progressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45CFE427E4E12000BBD7F0 /* progressCircle.swift */; };
 		5C45CFE727E4E20700BBD7F0 /* globalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45CFE627E4E20700BBD7F0 /* globalVariables.swift */; };
 		5C45CFE927E54DB400BBD7F0 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45CFE827E54DB400BBD7F0 /* AnimationView.swift */; };
+		5C5E3731280728AD007FB1A3 /* InformationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5E3730280728AD007FB1A3 /* InformationScreen.swift */; };
 		5C7A8B9F27E3C71E002912C2 /* OpenVoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A8B9E27E3C71E002912C2 /* OpenVoteApp.swift */; };
 		5C7A8BA127E3C71E002912C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A8BA027E3C71E002912C2 /* ContentView.swift */; };
 		5C7A8BA327E3C726002912C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C7A8BA227E3C726002912C2 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		5C45CFE427E4E12000BBD7F0 /* progressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = progressCircle.swift; sourceTree = "<group>"; };
 		5C45CFE627E4E20700BBD7F0 /* globalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globalVariables.swift; sourceTree = "<group>"; };
 		5C45CFE827E54DB400BBD7F0 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		5C5E3730280728AD007FB1A3 /* InformationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationScreen.swift; sourceTree = "<group>"; };
 		5C7A8B9B27E3C71E002912C2 /* OpenVote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenVote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C7A8B9E27E3C71E002912C2 /* OpenVoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenVoteApp.swift; sourceTree = "<group>"; };
 		5C7A8BA027E3C71E002912C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				5C0DE07627F74D69002A33FE /* ActivityView.swift */,
+				5C5E3730280728AD007FB1A3 /* InformationScreen.swift */,
 			);
 			path = TabView;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				5C45CFE927E54DB400BBD7F0 /* AnimationView.swift in Sources */,
 				5C7A8B9F27E3C71E002912C2 /* OpenVoteApp.swift in Sources */,
 				5C45CFDD27E4E08E00BBD7F0 /* firstPage.swift in Sources */,
+				5C5E3731280728AD007FB1A3 /* InformationScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

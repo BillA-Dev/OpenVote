@@ -72,7 +72,12 @@ struct AnimationView: View {
             ContentView() //Tutorial View
                 .interactiveDismissDisabled(true)
         }
-        
+        .onAppear {
+            DispatchQueue.main.async {
+                //This runs API
+                print(globalVar.independentExpend())
+            }
+        }
         
     }
 }

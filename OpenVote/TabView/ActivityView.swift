@@ -14,6 +14,27 @@ import SwiftUI
 import UIKit
 
 
+//Color Extension
+extension Color {
+    init(hexString: String) {
+        let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int = UInt64()
+        Scanner(string: hex).scanHexInt64(&int)
+        let r, g, b: UInt64
+        switch hex.count {
+        case 3: // RGB (12-bit)
+            (r, g, b) = ((int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6: // RGB (24-bit)
+            (r, g, b) = (int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8: // ARGB (32-bit)
+            (r, g, b) = (int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (r, g, b) = (0, 0, 0)
+        }
+        self.init(red: Double(r) / 255, green: Double(g) / 255, blue: Double(b) / 255)
+    }
+}
+
 
 class filteration{
     
@@ -75,7 +96,7 @@ class filteration{
         //print(newArr)
     }
     
-    //SHOULD BE GOOD 
+    //SHOULD BE GOOD
     
 }
 
@@ -149,6 +170,177 @@ struct ActivityView: View {
 
 
 
+struct skelLoad: View{
+    
+    //I WILL FIGURE IT OUT, MAYEB JUST ANIMATION HEHE
+    //HAVE TO FIX THIS APP TODAY;;;;NEED TO FIGURE THIS OUT
+    
+    
+    
+    
+    
+    
+    
+    
+    //SEKELTEN LOADING IT RN.
+    
+    @Binding var nameArr: [people]
+    @EnvironmentObject var globalVar: GlobalVariables
+    @State var numberForm = NumberFormatter()
+    
+    
+    @Binding var isApiDoneLoading: Bool
+    
+    
+    @State var color = Color(red: 191/155, green: 190/255, blue: 186/255)
+    
+    @State var arr = Array(repeating: "", count: 50)
+    
+    //WORK ON ANIMATION
+    
+    @State var opacity = 0.0
+    
+    
+    var body: some View{
+        
+        ///MIGHT REDO THE WHOLE HTING
+        ///GET API CALL ON THE LOADING SCREEN
+        ///.redacted(wait 2 sec ? .placeholder: [])
+        ///DO THIAT have to fix somestuff as well.
+        List{
+       
+            if isApiDoneLoading{
+                
+         
+                ForEach(nameArr.filter({
+                    globalVar.searchText.isEmpty ? true: $0.name.contains(globalVar.searchText)
+                
+                
+                })){x in
+                    
+                HStack{
+                    Circle().opacity(opacity).frame(width: 55, height: 55).foregroundColor(Color(red: 248/55, green: 248/255, blue: 248/255)).overlay{
+                     
+                        Image(x.party == "R" ? "republican" : x.party == "D" ? "democratic" :  "independent").resizable().aspectRatio(contentMode: .fit).padding(8)
+                        
+                        //The homepage is wierd
+                    }
+                    //ZAGG
+                    
+                    //This was it!
+                    VStack(alignment: .leading){
+                     
+
+                        Text(formatName(name: x.name, party: x.party, district: x.district)).bold().font(.system(size: 15)).opacity(opacity)
+                  
+                        
+                        
+                        //PacName
+                        
+                        //Figure out number formatter DONE
+                       
+                        Text(x.pacInfo + " / \(numberForm.string(from: NSNumber(value: Int(x.amount) ?? 0)) ?? "NULL")").font(.system(size: 12)).opacity(opacity)
+
+                    }
+                    Spacer()
+                    
+                    //DATE
+                    Text(x.date).font(.system(size: 8)).opacity(opacity)
+
+                }.listRowBackground(Color.white)
+                 .listRowSeparator(.hidden)
+            
+                }.animation(Animation.linear(duration: 1), value: opacity)
+                
+               
+            }else{
+                
+                ForEach(arr, id: \.self){x in
+                    
+                HStack{
+                    Circle().frame(width: 55, height: 55).foregroundColor(Color.gray.opacity(0.5))
+                    
+                    VStack(alignment: .leading){
+                     
+                        //NAME
+                        //This works!!!
+                    
+//                            var name = "\(switchFirstAndLast(name: x.name)) (\(x.party)-\(x.district))"
+                      
+                        
+                        Text("Rep. Casery Wardynski").bold().font(.system(size: 15)).redacted(reason: .placeholder)
+                        
+                        //PacName
+                        
+                        //Figure out number formatter DONE
+                       
+                        Text("Association of Emergency Responders and Firefighters / 2154").font(.system(size: 12)).redacted(reason: .placeholder)
+
+                    }
+                    Spacer()
+                    
+                    //DATE
+                    Text("March 17, 2020").font(.system(size: 8)).redacted(reason: .placeholder)
+
+                }.listRowBackground(Color.white)
+                 .listRowSeparator(.hidden)
+                 
+            
+            }
+            }
+        }.onAppear{
+            UITableView.appearance().backgroundColor = .white
+        
+            let _ = UIScrollView.ContentInsetAdjustmentBehavior.never
+            
+            //print(globalVar.nameArr)
+            
+            //WHY
+            numberForm.numberStyle = .currency
+            numberForm.maximumFractionDigits = 0
+            
+            print("Does this work")
+            
+           
+        }
+        .onChange(of: isApiDoneLoading) { V in
+            if V{
+                opacity = 1.0
+            }
+        }
+        
+        //WORK ON ANIMATINO
+      
+       
+        
+       
+    }
+    func formatName(name: String, party: String, district: String) -> String{
+        
+        return "\(repAndSenName(district: district)) \(switchFirstAndLast(name: name)) (\(party)-\(district))"
+    }
+    func repAndSenName(district: String) -> String{
+        
+        print(district[...district.index(district.startIndex, offsetBy: 2)])
+        if district[...district.index(district.startIndex, offsetBy: 2)] == "S"{
+            return "Sen."
+        }else{
+            return "Rep."
+
+
+        }
+        
+        
+    }
+    
+    func switchFirstAndLast(name: String) -> String{
+        
+        let lastName = name[...(name.firstIndex(of: ",")!)]
+        let firstName = name[name.index(after: name.firstIndex(of: ",")!)...]
+        return "\(firstName) \(lastName[...lastName.index(lastName.startIndex, offsetBy: lastName.count-2)])".trimmingCharacters(in: .whitespaces)
+        
+    }
+}
 
 struct secondView: View{
     var body: some View{
@@ -180,23 +372,26 @@ struct homePageView: View{
     @State var pacName: [String] = []
     @State var dates: [String] = []
     
+    
+    @State var isApiDoneLoading: Bool = false
+    
     init(){
-        UITableView.appearance().backgroundColor = .white
+            UITableView.appearance().backgroundColor = .white
+        
+            let _ = UIScrollView.ContentInsetAdjustmentBehavior.never
+            
+            //print(globalVar.nameArr)
+            
+            //WHY
+            numberForm.numberStyle = .currency
+            numberForm.maximumFractionDigits = 0
+            
+            print("Does this work")
+            
+            
+        }
     
-        let _ = UIScrollView.ContentInsetAdjustmentBehavior.never
-        
-        //print(globalVar.nameArr)
-        
-        //WHY
-        numberForm.numberStyle = .currency
-        numberForm.maximumFractionDigits = 0
-        
-        print("Does this work")
-        
-        
-    }
-    
-    //Connect pacName/nameArr/and other stuff. 
+    //Connect pacName/nameArr/and other stuff.
     
     var body: some View{
        
@@ -205,19 +400,20 @@ struct homePageView: View{
                 //Spaceing purposes
                 Image(systemName: "line.3.horizontal.decrease.circle").resizable().foregroundColor(Color.clear).frame(width: 25, height: 25).padding([.horizontal, .top])
                 Spacer()
+                
             Text("Recent Activity").font(.system(size: 25)).bold().padding([.top, .leading, .trailing]).onTapGesture {
                 //TESTING PURPOSES
                 if filteration.originalArr.isEmpty{
-                filteration.originalArr = nameArr
+                    filteration.originalArr = globalVar.arrayOfPeople
                 }
-               nameArr = filteration.partyFilter(arr: nameArr, party: "D")
+                globalVar.arrayOfPeople = filteration.partyFilter(arr: globalVar.arrayOfPeople, party: "D")
                 
             }
                 Spacer()
                 Button(action:{
                     if !filteration.originalArr.isEmpty{
                         //This means no filteration occured
-                    nameArr = filteration.originalArr
+                        globalVar.arrayOfPeople = filteration.originalArr
                     //EMPTY
                     //IF not empty dont replace arr
                     filteration.originalArr = []
@@ -226,73 +422,71 @@ struct homePageView: View{
                     Image(systemName: "line.3.horizontal.decrease.circle").resizable().foregroundColor(Color.black).frame(width: 25, height: 25).padding([.horizontal, .top])
                 }
             }
+            HStack{
             searchBar()
-            
+                HStack{
+                Image(systemName: "line.3.horizontal.decrease.circle").resizable().foregroundColor(Color(hexString: "20274B")).frame(width: 30, height: 30)
+               
+                Image(systemName: "info.circle").resizable().foregroundColor(Color(hexString: "20274B")).frame(width: 30, height: 30)
+                }.padding([.trailing, .top, .bottom])
+                Spacer()
+            }
             
             List{
-                //COMBINE THIS!
+                ForEach(globalVar.arrayOfPeople.filter({
+                    globalVar.searchText.isEmpty ? true: $0.name.contains(globalVar.searchText)
                 
-                    ForEach(nameArr.filter({
-                        globalVar.searchText.isEmpty ? true: $0.name.contains(globalVar.searchText)
-                    
-                    
-                    })){x in
-                        
-                    HStack{
-                        Circle().frame(width: 55, height: 55).foregroundColor(Color(red: 248/55, green: 248/255, blue: 248/255)).overlay{
-                            //ASK LUCAS ABOUT THE OTHERS
-                            
-                            //PARTY
-                            Image(x.party == "R" ? "republican" : x.party == "D" ? "democratic" :  "independent").resizable().aspectRatio(contentMode: .fit).padding(8)
-                            
-                            //The homepage is wierd
-                        }
-                        //ZAGG
-                        
-                        //This was it!
-                        VStack(alignment: .leading){
-                         
-                            //NAME
-                            //This works!!!
-                        
-//                            var name = "\(switchFirstAndLast(name: x.name)) (\(x.party)-\(x.district))"
-                          
-                            
-                            Text(formatName(name: x.name, party: x.party, district: x.district)).bold().font(.system(size: 15))
-                            
-                            //PacName
-                            
-                            //Figure out number formatter DONE
-                           
-                            Text(x.pacInfo + " / \(numberForm.string(from: NSNumber(value: Int(x.amount) ?? 0)) ?? "NULL")").font(.system(size: 12))
-
-                        }
-                        Spacer()
-                        
-                        //DATE
-                        Text(x.date).font(.system(size: 8))
-
-                    }.listRowBackground(Color.white)
-                     .listRowSeparator(.hidden)
                 
+                })){x in
+                    
+                HStack{
+                    Circle().frame(width: 55, height: 55).foregroundColor(Color(red: 248/55, green: 248/255, blue: 248/255)).overlay{
+                     
+                        if isApiDoneLoading{
+                        Image(x.party == "R" ? "republican" : x.party == "D" ? "democratic" :  "independent").resizable().aspectRatio(contentMode: .fit).padding(8)
+                        }
+                        
+                        //The homepage is wierd
+                    }
+                    //ZAGG
+                    
+                    //This was it!
+                    VStack(alignment: .leading){
+                     
+
+                        Text(formatName(name: x.name, party: x.party, district: x.district)).bold().font(.system(size: 15))
+                  
+                        
+                        
+                        //PacName
+                        
+                        //Figure out number formatter DONE
+                       
+                        Text(x.pacInfo + " / \(numberForm.string(from: NSNumber(value: Int(x.amount) ?? 0)) ?? "NULL")").font(.system(size: 12))
+
+                    }
+                    Spacer()
+                    
+                    //DATE
+                    Text(x.date).font(.system(size: 8))
+
+                }.listRowBackground(Color.white)
+                 .listRowSeparator(.hidden)
+            
                 }
-            }
+            }.redacted(reason: !isApiDoneLoading ? .placeholder: [])
+            
             
             
             .ignoresSafeArea()
-            //See if this makes some error
-            //Spacer()
+
+        }.onAppear{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                isApiDoneLoading = true
+            }
         }
         
-        .onAppear {
-            
-            independentExpend()
-            
-            //Testing Filteration System
-//            Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { Timer in
-//                filteration.partyFilter(arr: nameArr, party: "D")
-//            }
-        }
+        
     }
     
     func formatName(name: String, party: String, district: String) -> String{
@@ -301,89 +495,40 @@ struct homePageView: View{
     }
     func repAndSenName(district: String) -> String{
         
-        print(district[...district.index(district.startIndex, offsetBy: 2)])
+        
+        //!distric.isEmpy
+        if 2 >= 0 && 2 < district.count{
+       
         if district[...district.index(district.startIndex, offsetBy: 2)] == "S"{
             return "Sen."
+        }else if district == "PRES"{
+            return "Pres."
         }else{
             return "Rep."
 
 
+        }
+        }else{
+            print(district)
+            return "NULL"
         }
         
         
     }
     
     func switchFirstAndLast(name: String) -> String{
-        
+        if !name.isEmpty{
         let lastName = name[...(name.firstIndex(of: ",")!)]
         let firstName = name[name.index(after: name.firstIndex(of: ",")!)...]
         return "\(firstName) \(lastName[...lastName.index(lastName.startIndex, offsetBy: lastName.count-2)])".trimmingCharacters(in: .whitespaces)
-        
-    }
-    //API FUNC HERE
-    func formatDates(date: String) -> String{
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
-
-        if let date = dateFormatterGet.date(from: date) {
-            return (dateFormatterPrint.string(from: date))
         }else{
-            return "null"
+            print(name)
+            return "Anonoymous"
         }
         
     }
-    func independentExpend(){
-        
-        print("THIS FUNCTION IS RUNNING")
-        //API Should Work
-        let url = "http://www.opensecrets.org/api/?method=independentExpend&apikey=94b9a047921d79a4d77286e1b48c2175&output=json"
-        
-        
-        //https://stackoverflow.com/questions/68431272/swift-wait-until-the-urlsession-finished
-        //This is for knowing when API IS DONE LOADING
-        
-        
-        
-        
-        URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in
-            do {
-                // make sure this JSON is in the format we expect
-                //https://www.advancedswift.com/swift-json-without-swiftyjson/
-                //https://stackoverflow.com/questions/25475463/how-to-access-deeply-nested-dictionaries-in-swift
-                
-                let dict = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: AnyObject]
-                
-                let x = dict["response"]!["indexp"]!! as! NSArray
-                for l in x{
-                    let dictWithInfo = (l as! NSDictionary)["@attributes"] as! NSDictionary
-                    
-                    // print(dictWithInfo["candname"] as! String)
-                    
-                    //let date = formatDates(date: "\(dictWithInfo["date"] as! String)")
-                    
-                    //Chance pacshort to ammount!
-                    nameArr.append(people(name: dictWithInfo["candname"] as! String, pacInfo: dictWithInfo["pacshort"] as! String, date: formatDates(date: dictWithInfo["date"] as! String), party: dictWithInfo["party"] as! String, amount: dictWithInfo["amount"] as! String, district: dictWithInfo["district"] as! String))
-                    
-                 
-                   
-//                    pacName.append("\(dictWithInfo["pacshort"] as! String)")
-//                    formatDates(date: "\(dictWithInfo["date"] as! String)")
-                    
-                }
-                
-                
-            } catch let error as NSError {
-                print("Failed to load: \(error.localizedDescription)")
-            }
-        }.resume()
-        
-        //TEST
-        
-        
-    }
+    
+   
 }
 
 
@@ -503,7 +648,7 @@ struct searchBar: View{
     
     var body: some View{
         ZStack{
-            Rectangle().cornerRadius(8).frame(height: 45).padding(.horizontal).foregroundColor(Color(red: 248/255, green: 248/255, blue: 248/255))
+            Rectangle().cornerRadius(8).frame(height: 40).padding(.horizontal).foregroundColor(Color(red: 248/255, green: 248/255, blue: 248/255))
             HStack{
                 Spacer()
                 Image(systemName: "magnifyingglass").padding()
