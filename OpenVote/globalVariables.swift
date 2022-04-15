@@ -26,7 +26,7 @@ class GlobalVariables: ObservableObject{
     @Published var isShowingFilterScreen: Bool = false
     
     
-    @Published var amountValue: Float = 1.0
+    @Published var amountValue: Float = 5.0
     
     func independentExpend(){
         

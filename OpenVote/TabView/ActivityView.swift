@@ -166,8 +166,8 @@ struct ActivityView: View {
                         RoundedRectangle(cornerRadius: 20).padding(.top, -8)
                     ).shadow(radius: 8)
                 )
-                    .blur(radius: globalVar.isShowingInfoScreen ? 3 : 0)
-                    .disabled(globalVar.isShowingInfoScreen)
+                    .blur(radius: globalVar.isShowingInfoScreen ? 3 : globalVar.isShowingFilterScreen ? 3 : 0)
+                        .disabled(globalVar.isShowingInfoScreen || globalVar.isShowingFilterScreen)
                 
             }
         }
@@ -256,32 +256,8 @@ struct homePageView: View{
         
         ZStack{
             VStack{
-                HStack{
-                    //Spaceing purposes
-                    Image(systemName: "line.3.horizontal.decrease.circle").resizable().foregroundColor(Color.clear).frame(width: 25, height: 25).padding([.horizontal, .top])
-                    Spacer()
-                    
-                    Text("Recent Activity").font(.system(size: 25)).bold().padding([.top, .leading, .trailing]).onTapGesture {
-                        //TESTING PURPOSES
-                        if filteration.originalArr.isEmpty{
-                            filteration.originalArr = globalVar.arrayOfPeople
-                        }
-                        globalVar.arrayOfPeople = filteration.partyFilter(arr: globalVar.arrayOfPeople, party: "D")
-                        
-                    }
-                    Spacer()
-                    Button(action:{
-                        if !filteration.originalArr.isEmpty{
-                            //This means no filteration occured
-                            globalVar.arrayOfPeople = filteration.originalArr
-                            //EMPTY
-                            //IF not empty dont replace arr
-                            filteration.originalArr = []
-                        }
-                    }){
-                        Image(systemName: "line.3.horizontal.decrease.circle").resizable().foregroundColor(Color.black).frame(width: 25, height: 25).padding([.horizontal, .top])
-                    }
-                }
+                
+                Text("Recent Activity").font(.system(size: 25)).bold().padding([.top, .leading, .trailing])
                 
                 HStack{
                     
@@ -382,8 +358,8 @@ struct homePageView: View{
                     .animation(.easeInOut, value: isApiDoneLoading)
                     .animation(Animation.easeInOut(duration: 2), value: globalVar.isShowingInfoScreen)
                 
-            }.blur(radius: globalVar.isShowingInfoScreen ? 3 : 0)
-                .disabled(globalVar.isShowingInfoScreen)
+            }.blur(radius: globalVar.isShowingInfoScreen ? 3 : globalVar.isShowingFilterScreen ? 3 : 0)
+                .disabled(globalVar.isShowingInfoScreen || globalVar.isShowingFilterScreen)
                 
             
             

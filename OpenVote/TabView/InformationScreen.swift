@@ -11,7 +11,12 @@ import SwiftUI
 struct filterScreen: View{
     @EnvironmentObject var glovalBar: GlobalVariables
     @State var range: Double = log10(5_000_000)/log(10)
- 
+    @State var numberForm = NumberFormatter()
+    init(){
+        numberForm.numberStyle = .currency
+        numberForm.maximumFractionDigits = 0
+        
+    }
     
     var body: some View{
         VStack{
@@ -76,18 +81,25 @@ struct filterScreen: View{
                     Text("Expenditure Amount")
                     HStack{
                        
-                        Text("$1").foregroundColor(Color(hexString: "9F9FA5")).padding(10)
-                        Spacer()
-                        Text("$10,000").foregroundColor(Color(hexString: "9F9FA5")).padding(10)
-                        Spacer()
-                        Text("$1,000,000").foregroundColor(Color(hexString: "9F9FA5")).padding(10)
                         
+                        Text("$0").foregroundColor(Color(hexString: "9F9FA5"))
+                        Spacer()
+                        Text("$100,000").foregroundColor(Color(hexString: "9F9FA5")).padding([.leading], 48)
+                        Spacer()
+                        Text("$1,500,000").foregroundColor(Color(hexString: "9F9FA5"))
+                       
+                        
+                    }.padding(.top)
+                    
+                    
+                    
+                    Slider(value: $glovalBar.amountValue, in: 0...5).foregroundColor(Color(hexString: "20274B"))
+                     
+                    HStack{
+                    Spacer()
+                    Text("\(numberForm.string(from: NSNumber(value: glovalBar.amountValue < 2.5 ? (40000 * glovalBar.amountValue) : (560000 * (glovalBar.amountValue - 2.5) + 100000))) ?? "NULL")")
+                    Spacer()
                     }
-                    
-                    
-                    
-                    Slider(value: $glovalBar.amountValue, in: 0...5)
-                        
                     
 //                        .onTapGesture{
 //                        print(filteration.getMaximumNumber(arr: glovalBar.arrayOfPeople))
