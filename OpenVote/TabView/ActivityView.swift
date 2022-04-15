@@ -353,6 +353,7 @@ struct homePageView: View{
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                             isApiDoneLoading = true
                         }
+                        filteration.originalArr = globalVar.arrayOfPeople
                     }
                 
                     .animation(.easeInOut, value: isApiDoneLoading)
@@ -381,13 +382,15 @@ struct homePageView: View{
         
         
         //!distric.isEmpy
+       
         if 2 >= 0 && 2 < district.count{
             
-            if district[...district.index(district.startIndex, offsetBy: 2)] == "S"{
+            if district[district.index(district.startIndex, offsetBy: 2)] == "S"{
                 return "Sen."
             }else if district == "PRES"{
                 return "Pres."
             }else{
+                print(district[...district.index(district.startIndex, offsetBy: 2)])
                 return "Rep."
                 
                 

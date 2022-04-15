@@ -7,11 +7,23 @@
 
 import SwiftUI
 
+struct buttonClicked{
+    var filterSystem: String
+    var textOfWhatClicked: String
+    var isClicked: Bool = false
+    
+}
+
 
 struct filterScreen: View{
     @EnvironmentObject var glovalBar: GlobalVariables
     @State var range: Double = log10(5_000_000)/log(10)
     @State var numberForm = NumberFormatter()
+    
+    @State var party: [Bool] = [true, true, true]
+    @State var chamber: [Bool] = [true, true, true]
+    
+    
     init(){
         numberForm.numberStyle = .currency
         numberForm.maximumFractionDigits = 0
@@ -24,6 +36,7 @@ struct filterScreen: View{
             Button(action:{
                 glovalBar.isShowingFilterScreen = false
                 
+                //I will have to work on the filter code; this is actually much harder than it looks
                 //Filter code here
             }){
                 Image(systemName: "checkmark.circle.fill")
@@ -47,34 +60,128 @@ struct filterScreen: View{
         VStack(alignment: .leading){
             Text("Party")
             HStack{
-                Button(action:{}){
-                    Text("Democratic").foregroundColor(Color(hexString: "9F9FA5")).padding(10).overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2).foregroundColor(Color(hexString: "BAC6D5")))
+                Button(action:{
+                    party[0].toggle()
+                }){
+                    
+                    Text("Democratic")
+                        .foregroundColor(Color(hexString: !party[0] ? "9F9FA5" : "ffffff"))
+                        .padding(.horizontal)
+                        .padding([.top, .bottom], 10)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10).foregroundColor( party[0] ? Color(hexString: "20274B") : Color.clear)
+                       
+                        
+                        )
+                        .overlay(RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: 2)
+                        .foregroundColor(Color(hexString: !party[0] ? "BAC6D5" : "20274B")))
+                        .font(.system(size: 17))  // 1
+                         .minimumScaleFactor(0.01)
+                }
+              //  Spacer()
+                Button(action:{
+                    party[1].toggle()
+                }){
+                    Text("Republican")
+                        .foregroundColor(Color(hexString: !party[1] ? "9F9FA5" : "ffffff"))
+                        .padding(.horizontal)
+                        .padding([.top, .bottom], 10)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10).foregroundColor( party[1] ? Color(hexString: "20274B") : Color.clear)
+                       
+                        
+                        )
+                        .overlay(RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: 2)
+                        .foregroundColor(Color(hexString: !party[1] ? "BAC6D5" : "20274B")))
+                        .font(.system(size: 17))  // 1
+                         .minimumScaleFactor(0.01)
+                    
+                }.padding(.horizontal, 5)
+                //Spacer()
+                Button(action:{
+                    party[2].toggle()
+                }){
+                    Text("3rd")
+                        .foregroundColor(Color(hexString: !party[2] ? "9F9FA5" : "ffffff"))
+                        .padding(.horizontal)
+                        .padding([.top, .bottom], 10)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10).foregroundColor( party[2] ? Color(hexString: "20274B") : Color.clear)
+                       
+                        
+                        )
+                        .overlay(RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: 2)
+                        .foregroundColor(Color(hexString: !party[2] ? "BAC6D5" : "20274B")))
+                        .font(.system(size: 17))  // 1
+                         .minimumScaleFactor(0.01)
                 }
                 Spacer()
-                Button(action:{}){
-                    Text("Republican").foregroundColor(Color(hexString: "9F9FA5")).padding(10).overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2).foregroundColor(Color(hexString: "BAC6D5")))
-                }
-                Spacer()
-                Button(action:{}){
-                    Text("3rd").foregroundColor(Color(hexString: "9F9FA5")).padding(10).overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2).foregroundColor(Color(hexString: "BAC6D5")))
-                }
             }
         }
                 
                 VStack(alignment: .leading){
                     Text("Chamber")
                     HStack{
-                        Button(action:{}){
-                            Text("House").foregroundColor(Color(hexString: "9F9FA5")).padding(10).overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2).foregroundColor(Color(hexString: "BAC6D5")))
+                        Button(action:{
+                            chamber[0].toggle()
+                        }){
+                            Text("House")
+                                .foregroundColor(Color(hexString: !chamber[0] ? "9F9FA5" : "ffffff"))
+                                .padding(.horizontal)
+                                .padding([.top, .bottom], 10)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10).foregroundColor( chamber[0] ? Color(hexString: "20274B") : Color.clear)
+                               
+                                
+                                )
+                                .overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 2)
+                                .foregroundColor(Color(hexString: !chamber[0] ? "BAC6D5" : "20274B")))
+                                .font(.system(size: 17))  // 1
+                                 .minimumScaleFactor(0.01)
+                        }
+                       // Spacer()
+                        Button(action:{
+                            chamber[1].toggle()
+                        }){
+                            Text("Senate")
+                                .foregroundColor(Color(hexString: !chamber[1] ? "9F9FA5" : "ffffff"))
+                                .padding(.horizontal)
+                                .padding([.top, .bottom], 10)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10).foregroundColor( chamber[1] ? Color(hexString: "20274B") : Color.clear)
+                               
+                                
+                                )
+                                .overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 2)
+                                .foregroundColor(Color(hexString: !chamber[1] ? "BAC6D5" : "20274B")))
+                                .font(.system(size: 17))  // 1
+                                 .minimumScaleFactor(0.01)
+                        }.padding(.horizontal, 5)
+                      //  Spacer()
+                        Button(action:{
+                            chamber[2].toggle()
+                        }){
+                            Text("Executive")
+                                .foregroundColor(Color(hexString: !chamber[2] ? "9F9FA5" : "ffffff"))
+                                .padding(.horizontal)
+                                .padding([.top, .bottom], 10)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10).foregroundColor( chamber[2] ? Color(hexString: "20274B") : Color.clear)
+                               
+                                
+                                )
+                                .overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 2)
+                                .foregroundColor(Color(hexString: !chamber[2] ? "BAC6D5" : "20274B")))
+                                .font(.system(size: 17))  // 1
+                                 .minimumScaleFactor(0.01)
                         }
                         Spacer()
-                        Button(action:{}){
-                            Text("Senate").foregroundColor(Color(hexString: "9F9FA5")).padding(10).overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2).foregroundColor(Color(hexString: "BAC6D5")))
-                        }
-                        Spacer()
-                        Button(action:{}){
-                            Text("Executive").foregroundColor(Color(hexString: "9F9FA5")).padding(10).overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2).foregroundColor(Color(hexString: "BAC6D5")))
-                        }
                     }
                 }
                 VStack(alignment: .leading){
@@ -158,8 +265,9 @@ struct informationText: View{
                     .foregroundColor(Color(hexString: "20274B"))
                     .font(.system(size: 15))
                    
-                Text("Independent expenditures are payments that advocate for the election or defeat of a specific candidate. They're not made in coordination with that candidate, and they're typically advertisements.") .font(.system(size: 12))
-                    .multilineTextAlignment(.leading)
+                Text("Independent expenditures are payments that advocate for the election or defeat of a specific candidate. They're not made in coordination with that candidate, and they're typically advertisements.")
+                    .font(.system(size: 300))  // 1
+                     .minimumScaleFactor(0.01)
                     
                     
                     .foregroundColor(Color(hexString: "20274B"))
@@ -172,8 +280,9 @@ struct informationText: View{
                     .foregroundColor(Color(hexString: "20274B"))
                     .font(.system(size: 15))
                     
-                Text("No, unlimited amounts of money may be spent. Citizens United vs FC (2010) controversially ruled that the free speech clause of the 1st Amendment prohibits restrictions on all independent expenditures. This case has almost singlehandedly fueled the rise of Super PACs.") .font(.system(size: 12))
-                    .multilineTextAlignment(.leading)
+                Text("No, unlimited amounts of money may be spent. Citizens United vs FC (2010) controversially ruled that the free speech clause of the 1st Amendment prohibits restrictions on all independent expenditures. This case has almost singlehandedly fueled the rise of Super PACs.")
+                    .font(.system(size: 300))  // 1
+                     .minimumScaleFactor(0.01)
                     
                     .foregroundColor(Color(hexString: "20274B"))
             }
@@ -184,8 +293,9 @@ struct informationText: View{
                     .foregroundColor(Color(hexString: "20274B"))
                     .font(.system(size: 15))
                     
-                Text("Unlike typical political action committees (PACs), Super PACs rely on independent expenditures to skirt imits on what they can spend and raise. According to data from OpenSecrets, the top 100 individual Super PAC donors make up just 3.7% of contributors, but they accounted for more than 80% of the total money raised.") .font(.system(size: 12))
-                    .multilineTextAlignment(.leading)
+                Text("Unlike typical political action committees (PACs), Super PACs rely on independent expenditures to skirt imits on what they can spend and raise. According to data from OpenSecrets, the top 100 individual Super PAC donors make up just 3.7% of contributors, but they accounted for more than 80% of the total money raised.")
+                    .font(.system(size: 300))  // 1
+                     .minimumScaleFactor(0.01)
                    
                     .foregroundColor(Color(hexString: "20274B"))
             }

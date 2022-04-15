@@ -28,6 +28,10 @@ class GlobalVariables: ObservableObject{
     
     @Published var amountValue: Float = 5.0
     
+    func getLegislators(){
+//        let url = "http://www.opensecrets.org/api/?method=independentExpend&apikey=94b9a047921d79a4d77286e1b48c2175&output=json"
+        //WORK ON THIS
+    }
     func independentExpend(){
         
         
