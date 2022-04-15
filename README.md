@@ -73,6 +73,7 @@ _More information about our data, including resources to learn about campaign fi
 ## Versions
 
 ### Version History
+
 #### Version 0.1.1
 - Opening animation
 - Tutorial sequence
@@ -85,22 +86,13 @@ _More information about our data, including resources to learn about campaign fi
 ![v0 1 1mockups](https://user-images.githubusercontent.com/59670355/162287216-bdb163b4-b6f0-48b6-8309-0f6fb865ad03.png)
 
 ### Project Roadmap
-#### Versions 0.1 - 0.2 (Weeks 1-2)
+#### Versions 0.1 - 0.2
+- Homepage, candidate view, chart view, and PAC view screens
 - Onboarding screens revamp
 - Skeleton loading
-- Homepage graph overview
 - Implementing user feedback
   - Recent Activity screen readability improvements
-  - Recent Activity screen filter and info popup
-
-#### Full Feature List
-- Homepage with previews from other pages
-- Ambassador appointments and donations
-- Congressional stock trading
-- Individual candidate view
-  - Single contributor history
-- Congressional committee fundraising history
-- PAC view 
+  - Recent Activity screen filter
 
 See the [open issues](https://github.com/BillA-Dev/OpenVote/issues) for a full list of proposed features and known issues.
 
@@ -144,7 +136,6 @@ Bilal Ahmed | | [GitHub](https://github.com/BillA-Dev) |
 * [Jenn Nelson (project advisor)](https://github.com/jnelsonep)
 * [Quassum's SVG to SwiftUI Tool](https://github.com/quassum/SVG-to-SwiftUI)
 * [Maksim Petriv's SwiftUI Inspector Plugin](https://www.figma.com/community/plugin/784879032180068427/SwiftUI-Inspector)
-* [Andras Samu's ChartView](https://github.com/AppPear/ChartView)
 
 <br>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">OpenVote</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.

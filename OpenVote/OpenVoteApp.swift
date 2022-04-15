@@ -16,15 +16,15 @@ struct OpenVoteApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            if envObj.tutorialSkipped{
-//                ActivityView()
-//                    .environmentObject(envObj)
-//            }else{
-//                AnimationView()
-//                .environmentObject(envObj)
-//            }
+            if envObj.tutorialSkipped{
+                ActivityView()
+                    .environmentObject(envObj)
+            }else{
+                AnimationView()
+                .environmentObject(envObj)
+            }
             
-            InformationScreen()
+          
            
            
 

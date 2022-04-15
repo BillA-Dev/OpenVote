@@ -20,6 +20,13 @@ class GlobalVariables: ObservableObject{
     
     @Published var isApiDoneLoading: Bool = false
     
+    @Published var isShowingInfoScreen: Bool = false
+    
+ 
+    @Published var isShowingFilterScreen: Bool = false
+    
+    
+    @Published var amountValue: Float = 1.0
     
     func independentExpend(){
         
