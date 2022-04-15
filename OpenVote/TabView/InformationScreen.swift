@@ -86,7 +86,7 @@ struct filterScreen: View{
                     
                     
                     
-                    Slider(value: $glovalBar.amountValue, in: 0...6.69)
+                    Slider(value: $glovalBar.amountValue, in: 0...5)
                         
                     
 //                        .onTapGesture{
@@ -94,7 +94,11 @@ struct filterScreen: View{
 //                    }
                 }.onChange(of: glovalBar.amountValue) { V in
                     
-                    print(powf(0.5, V))
+                    if Float(V) < 2.5 {
+                        print(40000 * V)
+                    } else {
+                        print(560000 * (V - 2.5) + 100000)
+                    }
                 }
                 
                 
