@@ -49,8 +49,8 @@ struct filterScreen: View{
                         .foregroundColor(Color(hexString: "20274B"))
                 }.padding()
                 Spacer()
-                Text("Filter")
-                    .font(.system(size: 30))
+                Text("Filter Expenditures")
+                    .font(.system(size: 22))
                     .bold()
                     .foregroundColor(Color(hexString: "20274B"))
                 Spacer()
@@ -63,6 +63,8 @@ struct filterScreen: View{
             VStack{
                 VStack(alignment: .leading){
                     Text("Party")
+                        .font(.system(size:16))
+                        .bold()
                     HStack{
                         Button(action:{
                             party[0].toggle()
@@ -125,9 +127,11 @@ struct filterScreen: View{
                         Spacer()
                     }
                 }
-                
+                Spacer()
                 VStack(alignment: .leading){
                     Text("Chamber")
+                        .font(.system(size:16))
+                        .bold()
                     HStack{
                         Button(action:{
                             chamber[0].toggle()
@@ -188,8 +192,13 @@ struct filterScreen: View{
                         Spacer()
                     }
                 }
+        
                 VStack(alignment: .leading){
                     Text("Expenditure Amount")
+                        .font(.system(size: 16))
+                        .bold()
+                        .padding(.top, 10)
+                    
                     HStack{
                         
                         
@@ -200,16 +209,17 @@ struct filterScreen: View{
                         Text("$1,500,000").foregroundColor(Color(hexString: "9F9FA5"))
                         
                         
-                    }.padding(.top)
+                    }.padding(.top, 8)
                     
                     
                     
                     Slider(value: $glovalBar.amountValue, in: 0...5).foregroundColor(Color(hexString: "20274B"))
                     
-                    HStack{
-                        Spacer()
+                    HStack(alignment: .bottom) {
                         Text("\(numberForm.string(from: NSNumber(value: glovalBar.amountValue < 2.5 ? (40000 * glovalBar.amountValue) : (560000 * (glovalBar.amountValue - 2.5) + 100000))) ?? "NULL")")
-                        Spacer()
+                            .padding(.bottom, 10)
+                            .foregroundColor(Color(hexString: "9F9FA5"))
+
                     }
                     
                     //                        .onTapGesture{
