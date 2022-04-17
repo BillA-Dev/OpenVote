@@ -75,7 +75,9 @@ struct AnimationView: View {
         .onAppear {
             DispatchQueue.main.async {
                 //This runs API
-                print(globalVar.independentExpend())
+                globalVar.independentExpend()
+                //globalVar.getLegislators()
+                
             }
         }
         

@@ -28,10 +28,40 @@ class GlobalVariables: ObservableObject{
     
     @Published var amountValue: Float = 5.0
     
-    func getLegislators(){
-//        let url = "http://www.opensecrets.org/api/?method=independentExpend&apikey=94b9a047921d79a4d77286e1b48c2175&output=json"
-        //WORK ON THIS
-    }
+    @Published var sliderAmmount: Float = 1_500_000
+//    func getLegislators(){
+//        
+//        //https://stackoverflow.com/questions/67455466/how-to-add-http-header-in-swiftui-and-how-to-get-data-from-json
+//        
+//        let apiKey = "TVzFYhCZNQl5znRgQkhZTnyXB2bRPEd5GAIvev77"
+//        guard let url = URL(string: "https://api.propublica.org/congress/v1/{117}/{house}/members.json") else {
+//                    fatalError("Invalid URL")
+//        }
+//        
+//        var r = URLRequest(url: url)
+//        r.httpMethod = "GET"
+//        r.setValue(apiKey, forHTTPHeaderField: "X-API-Key")
+//        URLSession.shared.dataTask(with: r){ data, response, error in
+//            
+//            do{
+//                let dict = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: AnyObject]
+//                
+//                let results = dict["results"] as! NSArray
+//                let members = (results[0] as! NSDictionary)["members"] as! NSArray
+//                for x in members{
+//                   let di = x as! NSDictionary
+//                    print(di["first_name"] as! String)
+//                }
+//                
+//            
+//            }catch let error as NSError{
+//                print(error.localizedDescription)
+//            }
+//            
+//        }.resume()
+//    }
+    
+    
     func independentExpend(){
         
         
@@ -64,11 +94,7 @@ class GlobalVariables: ObservableObject{
                 for l in x{
                     let dictWithInfo = (l as! NSDictionary)["@attributes"] as! NSDictionary
                     
-                    // print(dictWithInfo["candname"] as! String)
-                    
-                    //let date = formatDates(date: "\(dictWithInfo["date"] as! String)")
-                    
-                    //Chance pacshort to ammount
+               
                     DispatchQueue.main.async {
                         
                     
