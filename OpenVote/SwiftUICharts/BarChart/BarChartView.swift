@@ -69,7 +69,7 @@ public struct BarChartView : View {
                             .font(.callout)
                             .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.accentColor : self.style.accentColor)
                             .transition(.opacity)
-                            .animation(.easeOut)
+                            .animation(.easeOut, value: self.legend)
                     }
                     Spacer()
                     self.cornerImage

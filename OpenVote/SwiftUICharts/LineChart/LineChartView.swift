@@ -86,7 +86,7 @@ public struct LineChartView: View {
                         }
                     }
                     .transition(.opacity)
-                    .animation(.easeIn(duration: 0.1))
+                    .animation(.easeIn(duration: 0.1), value: self.rateValue)
                     .padding([.leading, .top])
                 }else{
                     HStack{

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct homePageView: View{
+struct recentActivityView: View{
     
     
     @State var color = Color(red: 248/255, green: 248/255, blue: 248/255)
@@ -213,6 +213,6 @@ struct homePageView: View{
 
 struct homePageView_Previews: PreviewProvider {
     static var previews: some View {
-        homePageView()
+        recentActivityView()
     }
 }

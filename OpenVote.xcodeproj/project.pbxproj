@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5C0DE07727F74D69002A33FE /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0DE07627F74D69002A33FE /* ActivityView.swift */; };
-		5C30BDC0280DB62C007982C9 /* homePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30BDBF280DB62C007982C9 /* homePageView.swift */; };
+		5C30BDC0280DB62C007982C9 /* recentActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30BDBF280DB62C007982C9 /* recentActivityView.swift */; };
 		5C30BDC2280DB695007982C9 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30BDC1280DB695007982C9 /* TabBar.swift */; };
 		5C30BDC4280DB6B8007982C9 /* searchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30BDC3280DB6B8007982C9 /* searchBar.swift */; };
+		5C30BDC6280DB89B007982C9 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30BDC5280DB89B007982C9 /* HomeScreen.swift */; };
 		5C45CFDD27E4E08E00BBD7F0 /* firstPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45CFDC27E4E08E00BBD7F0 /* firstPage.swift */; };
 		5C45CFDF27E4E0BB00BBD7F0 /* secondScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45CFDE27E4E0BB00BBD7F0 /* secondScreen.swift */; };
 		5C45CFE127E4E0C800BBD7F0 /* thirdScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45CFE027E4E0C800BBD7F0 /* thirdScreen.swift */; };
@@ -44,9 +45,10 @@
 
 /* Begin PBXFileReference section */
 		5C0DE07627F74D69002A33FE /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
-		5C30BDBF280DB62C007982C9 /* homePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homePageView.swift; sourceTree = "<group>"; };
+		5C30BDBF280DB62C007982C9 /* recentActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recentActivityView.swift; sourceTree = "<group>"; };
 		5C30BDC1280DB695007982C9 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		5C30BDC3280DB6B8007982C9 /* searchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchBar.swift; sourceTree = "<group>"; };
+		5C30BDC5280DB89B007982C9 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		5C45CFDA27E4DFEA00BBD7F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5C45CFDC27E4E08E00BBD7F0 /* firstPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstPage.swift; sourceTree = "<group>"; };
 		5C45CFDE27E4E0BB00BBD7F0 /* secondScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondScreen.swift; sourceTree = "<group>"; };
@@ -96,9 +98,10 @@
 			children = (
 				5C0DE07627F74D69002A33FE /* ActivityView.swift */,
 				5C5E3730280728AD007FB1A3 /* InformationScreen.swift */,
-				5C30BDBF280DB62C007982C9 /* homePageView.swift */,
+				5C30BDBF280DB62C007982C9 /* recentActivityView.swift */,
 				5C30BDC1280DB695007982C9 /* TabBar.swift */,
 				5C30BDC3280DB6B8007982C9 /* searchBar.swift */,
+				5C30BDC5280DB89B007982C9 /* HomeScreen.swift */,
 			);
 			path = TabView;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				5C45CFE927E54DB400BBD7F0 /* AnimationView.swift in Sources */,
 				755ADBC3280C8FA900A62FE0 /* Path+QuadCurve.swift in Sources */,
 				755ADBC4280C8FA900A62FE0 /* MultiLineChartView.swift in Sources */,
+				5C30BDC6280DB89B007982C9 /* HomeScreen.swift in Sources */,
 				755ADBB7280C8FA900A62FE0 /* LabelView.swift in Sources */,
 				755ADBB9280C8FA900A62FE0 /* Helpers.swift in Sources */,
 				5C7A8B9F27E3C71E002912C2 /* OpenVoteApp.swift in Sources */,
@@ -303,7 +307,7 @@
 				5C5E3731280728AD007FB1A3 /* InformationScreen.swift in Sources */,
 				755ADBB5280C8FA900A62FE0 /* BarChartView.swift in Sources */,
 				755ADBBA280C8FA900A62FE0 /* PieChartRow.swift in Sources */,
-				5C30BDC0280DB62C007982C9 /* homePageView.swift in Sources */,
+				5C30BDC0280DB62C007982C9 /* recentActivityView.swift in Sources */,
 				755ADBBE280C8FA900A62FE0 /* IndicatorPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

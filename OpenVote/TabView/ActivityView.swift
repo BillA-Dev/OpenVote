@@ -31,7 +31,8 @@ class filteration{
 }
 
 class screenController{
-    static var activityPage = homePageView()
+    static var activityPage = recentActivityView()
+    static var homePage = HomeScreen()
     static var emptyView = EmptyView()
 }
 
@@ -59,7 +60,7 @@ struct ActivityView: View {
          
                 switch pageNav.currentPage{
                 case .home:
-                    screenController.emptyView
+                    screenController.homePage
                     Spacer()
                 case .canView:
                     screenController.emptyView

@@ -95,7 +95,7 @@ public struct MultiLineChartView: View {
                         }
                     }
                     .transition(.opacity)
-                    .animation(.easeIn(duration: 0.1))
+                    .animation(.easeIn(duration: 0.1), value: self.showIndicatorDot)
                     .padding([.leading, .top])
                 }else{
                     HStack{

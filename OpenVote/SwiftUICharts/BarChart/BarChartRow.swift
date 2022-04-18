@@ -32,7 +32,7 @@ public struct BarChartRow : View {
                                  gradient: self.gradient,
                                  touchLocation: self.$touchLocation)
                         .scaleEffect(self.touchLocation > CGFloat(i)/CGFloat(self.data.count) && self.touchLocation < CGFloat(i+1)/CGFloat(self.data.count) ? CGSize(width: 1.4, height: 1.1) : CGSize(width: 1, height: 1), anchor: .bottom)
-                        .animation(.spring())
+                        .animation(.spring(), value: self.touchLocation)
                     
                 }
             }
