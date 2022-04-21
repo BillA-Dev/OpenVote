@@ -277,7 +277,7 @@ struct filterScreen: View{
         }else if district == "PRES"{
             x = "Executive"
         }else{
-            print(district[...district.index(district.startIndex, offsetBy: 2)])
+           // print(district[...district.index(district.startIndex, offsetBy: 2)])
             x = "House"
         }
         return x == chamber ? true : false

@@ -37,7 +37,7 @@ struct AnimationView: View {
                             let _ = DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                                 startingOffset = 35
                             }
-                            let _ = DispatchQueue.main.asyncAfter(deadline: .now() + (0.5 + 1.5)){
+                            let _ = DispatchQueue.main.asyncAfter(deadline: .now() + (0.5 + 1.8)){
                                 opacity = 1.0
                                 logoopacity = 1.0
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.9){
@@ -58,8 +58,8 @@ struct AnimationView: View {
                             
                             
                             
-                        }.animation(.easeInOut(duration: 1.5), value: startingOffset)
-                        .animation(.easeInOut(duration: 0.6), value: opacity)
+                        }.animation(.easeInOut(duration: 1.8), value: startingOffset)
+                        .animation(.easeInOut(duration: 0.9), value: opacity)
                        
                     
                     
@@ -76,7 +76,7 @@ struct AnimationView: View {
             DispatchQueue.main.async {
                 //This runs API
                 globalVar.independentExpend()
-                //globalVar.getLegislators()
+                globalVar.getLegislators()
                 
             }
         }

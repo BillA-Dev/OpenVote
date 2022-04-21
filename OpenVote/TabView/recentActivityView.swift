@@ -147,6 +147,8 @@ struct recentActivityView: View{
                             isApiDoneLoading = true
                         }
                         filteration.originalArr = globalVar.arrayOfPeople
+                        
+//                        print(globalVar.HouseLegislatorName)
                     }
                 
                     .animation(.easeInOut, value: isApiDoneLoading)
@@ -168,31 +170,36 @@ struct recentActivityView: View{
     }
     
     func formatName(name: String, party: String, district: String) -> String{
-        
-        return "\(repAndSenName(district: district)) \(switchFirstAndLast(name: name)) (\(party)-\(district))"
+        let Formname = switchFirstAndLast(name: name)
+        return "\(repAndSenName(name: Formname, district: district))\(Formname) (\(party)-\(district))"
     }
-    func repAndSenName(district: String) -> String{
+    func repAndSenName(name: String, district: String) -> String{
         
+        //print(name)
+        if globalVar.HouseLegislatorName.contains(name){
+          
+            
         
-        //!distric.isEmpy
         
         if 2 >= 0 && 2 < district.count{
             
             if district[district.index(district.startIndex, offsetBy: 2)] == "S"{
-                return "Sen."
+                return "Sen. "
             }else if district == "PRES"{
-                return "Pres."
+                return "Pres. "
             }else{
-                print(district[...district.index(district.startIndex, offsetBy: 2)])
-                return "Rep."
+                //print(district[...district.index(district.startIndex, offsetBy: 2)])
+                return "Rep. "
                 
                 
             }
         }else{
             print(district)
-            return "NULL"
+            return "NULL "
         }
-        
+        }else{
+            return ""
+        }
         
     }
     

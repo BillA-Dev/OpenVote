@@ -29,37 +29,73 @@ class GlobalVariables: ObservableObject{
     @Published var amountValue: Float = 5.0
     
     @Published var sliderAmmount: Float = 1_500_000
-//    func getLegislators(){
-//        
-//        //https://stackoverflow.com/questions/67455466/how-to-add-http-header-in-swiftui-and-how-to-get-data-from-json
-//        
-//        let apiKey = "TVzFYhCZNQl5znRgQkhZTnyXB2bRPEd5GAIvev77"
-//        guard let url = URL(string: "https://api.propublica.org/congress/v1/{117}/{house}/members.json") else {
-//                    fatalError("Invalid URL")
-//        }
-//        
-//        var r = URLRequest(url: url)
-//        r.httpMethod = "GET"
-//        r.setValue(apiKey, forHTTPHeaderField: "X-API-Key")
-//        URLSession.shared.dataTask(with: r){ data, response, error in
-//            
-//            do{
-//                let dict = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: AnyObject]
-//                
-//                let results = dict["results"] as! NSArray
-//                let members = (results[0] as! NSDictionary)["members"] as! NSArray
-//                for x in members{
-//                   let di = x as! NSDictionary
-//                    print(di["first_name"] as! String)
-//                }
-//                
-//            
-//            }catch let error as NSError{
-//                print(error.localizedDescription)
-//            }
-//            
-//        }.resume()
-//    }
+    
+    
+    @Published var HouseLegislatorName: [String] = []
+    
+    
+    func getLegislators(){
+        
+        //https://stackoverflow.com/questions/67455466/how-to-add-http-header-in-swiftui-and-how-to-get-data-from-json
+        
+        
+        let apiKey = "TVzFYhCZNQl5znRgQkhZTnyXB2bRPEd5GAIvev77"
+        guard var url = URL(string: "https://api.propublica.org/congress/v1/117/house/members.json") else {
+                    fatalError("Invalid URL")
+        }
+        
+        var r = URLRequest(url: url)
+        r.httpMethod = "GET"
+        r.setValue(apiKey, forHTTPHeaderField: "X-API-Key")
+        URLSession.shared.dataTask(with: r){ data, response, error in
+            
+            do{
+                let dict = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: AnyObject]
+                
+                let results = dict["results"] as! NSArray
+                let members = (results[0] as! NSDictionary)["members"] as! NSArray
+                for x in members{
+                   let di = x as! NSDictionary
+                    DispatchQueue.main.async {
+                        self.HouseLegislatorName.append("\(di["first_name"] as! String) \(di["last_name"] as! String)")
+                    }
+                }
+                
+            
+            }catch let error as NSError{
+                print(error.localizedDescription)
+            }
+            
+        }.resume()
+        
+        url = URL(string: "https://api.propublica.org/congress/v1/117/senate/members.json")!
+        URLSession.shared.dataTask(with: r){ data, response, error in
+            
+            do{
+                let dict = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: AnyObject]
+                
+                let results = dict["results"] as! NSArray
+                let members = (results[0] as! NSDictionary)["members"] as! NSArray
+                for x in members{
+                   let di = x as! NSDictionary
+                    
+                    DispatchQueue.main.async {
+                        self.HouseLegislatorName.append("\(di["first_name"] as! String) \(di["last_name"] as! String)")
+                    }
+                    
+                    
+                    
+                }
+                
+            
+            }catch let error as NSError{
+                print(error.localizedDescription)
+            }
+            
+        }.resume()
+        
+        
+    }
     
     
     func independentExpend(){
