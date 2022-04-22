@@ -31,8 +31,8 @@ struct filterScreen: View{
     }
     
     var body: some View{
-        VStack{
-            HStack{
+        LazyVStack{
+            LazyHStack{
                 Button(action:{
                     glovalBar.isShowingFilterScreen = false
                     print("clicked")
@@ -60,12 +60,12 @@ struct filterScreen: View{
                     .foregroundColor(Color.clear).padding()
                 
             }
-            VStack{
-                VStack(alignment: .leading){
+            LazyVStack{
+                LazyVStack(alignment: .leading){
                     Text("Party")
                         .font(.system(size:16))
                         .bold()
-                    HStack{
+                    LazyHStack{
                         Button(action:{
                             party[0].toggle()
                         }){
@@ -128,11 +128,11 @@ struct filterScreen: View{
                     }
                 }
                 Spacer()
-                VStack(alignment: .leading){
+                LazyVStack(alignment: .leading){
                     Text("Chamber")
                         .font(.system(size:16))
                         .bold()
-                    HStack{
+                    LazyHStack{
                         Button(action:{
                             chamber[0].toggle()
                         }){
@@ -193,7 +193,7 @@ struct filterScreen: View{
                     }
                 }
         
-                VStack(alignment: .leading){
+                LazyVStack(alignment: .leading){
                     Text("Expenditure Amount")
                         .font(.system(size: 16))
                         .bold()
@@ -202,11 +202,17 @@ struct filterScreen: View{
                     HStack{
                         
                         
-                        Text("$0").foregroundColor(Color(hexString: "9F9FA5"))
+                        Text("$0").foregroundColor(Color(hexString: "9F9FA5")).onTapGesture {
+                            glovalBar.amountValue = 0
+                        }
                         Spacer()
-                        Text("$100,000").foregroundColor(Color(hexString: "9F9FA5")).padding([.leading], 48)
+                        Text("$100,000").foregroundColor(Color(hexString: "9F9FA5")).padding([.leading], 48).onTapGesture {
+                            glovalBar.amountValue = 2.5
+                        }
                         Spacer()
-                        Text("$1,500,000").foregroundColor(Color(hexString: "9F9FA5"))
+                        Text("$1,500,000").foregroundColor(Color(hexString: "9F9FA5")).onTapGesture {
+                            glovalBar.amountValue = 5
+                        }
                         
                         
                     }.padding(.top, 8)
@@ -215,7 +221,7 @@ struct filterScreen: View{
                     
                     Slider(value: $glovalBar.amountValue, in: 0...5).foregroundColor(Color(hexString: "20274B"))
                     
-                    HStack(alignment: .bottom) {
+                    LazyHStack(alignment: .bottom) {
                         Text("\(numberForm.string(from: NSNumber(value: glovalBar.amountValue < 2.5 ? (40000 * glovalBar.amountValue) : (560000 * (glovalBar.amountValue - 2.5) + 100000))) ?? "NULL")")
                             .padding(.bottom, 10)
                             .foregroundColor(Color(hexString: "9F9FA5"))
