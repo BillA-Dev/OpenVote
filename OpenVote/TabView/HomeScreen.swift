@@ -22,6 +22,7 @@ struct HomeScreen: View {
     var body: some View {
         TabView(selection: $selection){
             ForEach(0...5, id:\.self){ x in
+                
                 rectangle(color: color[x]).tag(x)
             }
             
@@ -29,14 +30,21 @@ struct HomeScreen: View {
         }.tabViewStyle(PageTabViewStyle())
             .onAppear {
                
-                    withAnimation(Animation.easeInOut(duration: 5.0).repeatForever()){
+                //Schedule Timer
+                 
+                Timer.scheduledTimer(withTimeInterval: 8, repeats: true) { Timer in
+                    withAnimation(Animation.easeIn(duration: 4.0)){
+                        
                         if selection == 2{
                             selection = 0
                         }else{
                             selection += 1
                         }
-                    print(selection)
+                        Timer.tolerance = 0.2
+                    //print(selection)
                     }
+                }
+                    
                     
                     
                     
