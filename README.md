@@ -83,16 +83,35 @@ _More information about our data, including resources to learn about campaign fi
     - Searchable
     - Includes party, PAC, and expenditure information
 
-![v0 1 1mockups](https://user-images.githubusercontent.com/59670355/162287216-bdb163b4-b6f0-48b6-8309-0f6fb865ad03.png)
-
-### Project Roadmap
-#### Versions 0.1 - 0.2
-- Homepage, candidate view, chart view, and PAC view screens
-- Onboarding screens revamp
+#### Version 0.1.2
+- Recent Activity screen changes
+  - Filter with scaled slider + party/chamber parameters
+  - Title fixes (checks list of current legislators and candidates)
+  - Additional info screen
+- Chart library work
+  - Haptic feedback
+  - Color themes
+  - Frame sizing changes
+  - Corner icon resizing
 - Skeleton loading
-- Implementing user feedback
-  - Recent Activity screen readability improvements
-  - Recent Activity screen filter
+
+<!-- ![v0 1 1mockups](https://user-images.githubusercontent.com/59670355/162287216-bdb163b4-b6f0-48b6-8309-0f6fb865ad03.png) -->
+### Project Roadmap
+#### Versions 0.1.3
+- Continued Recent Activity screen changes
+  - Sorting function
+  - Rearrange UI
+- Onboarding screens revamp
+  - Name input + ToD greeting
+  - Aesthetic changes
+- Homepage creation
+  - Graph carousel
+  - Highlights/previews from other screens
+  - OpenVote announcements*
+- App store resources
+  - Animated previews
+  - Screenshots and mockups
+  - Text description + keywords
 
 See the [open issues](https://github.com/BillA-Dev/OpenVote/issues) for a full list of proposed features and known issues.
 
@@ -124,6 +143,7 @@ Name | Email | GitHub | Other
 ---- | ----- | ------ | ---- 
 Lucas Wagner | lwagner.mn@gmail.com | [GitHub](https://github.com/LucasDWagner) | [LinkedIn](www.linkedin.com/in/lucaswagner-mn)
 Bilal Ahmed | | [GitHub](https://github.com/BillA-Dev) |
+Pranay Singh| 90305656@ep-student.org | [GitHub](https://github.com/PranaySingh04)
 
 **Project Link:** [https://github.com/BillA-Dev/OpenVote](https://github.com/BillA-Dev/OpenVote)
 
