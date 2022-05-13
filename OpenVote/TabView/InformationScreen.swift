@@ -27,6 +27,7 @@ struct filterScreen: View{
     init(){
         numberForm.numberStyle = .currency
         numberForm.maximumFractionDigits = 0
+        //UserDefaults.resetStandardUserDefaults()
         
     }
     

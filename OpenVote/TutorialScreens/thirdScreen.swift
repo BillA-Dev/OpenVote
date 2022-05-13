@@ -16,15 +16,10 @@ struct thirdScreen: View {
     var body: some View {
         VStack{
             ZStack{
-                Rectangle().aspectRatio(1, contentMode: .fit).cornerRadius(5).padding(50).shadow(color: Color.black.opacity(0.5), radius: 2, x: 0, y: 5).cornerRadius(5).foregroundColor(Color(red: 0.8666666666666667, green: 0.9176470588235294, blue: 0.9529411764705882)).overlay{
-                    
-                    Image(systemName: "photo").resizable()
-                        .foregroundColor(Color.gray).frame(width: 50, height: 50).padding().aspectRatio(1.0, contentMode: .fit)
-                    //Probably add image ilogo here
-                }
+                Rectangle().aspectRatio(1, contentMode: .fit).cornerRadius(24).padding(50).cornerRadius(24).foregroundColor(Color(hexString: "e5e5ea"))
             }
             
-            Text("Third Screen.").font(.title).fontWeight(.bold).foregroundColor(Color(red: 0.0, green: 0.4392156862745098, blue: 0.7529411764705882, opacity: 1.0)).padding(.bottom)
+            Text("Second Screen.").font(.title).fontWeight(.bold).foregroundColor(Color(hexString: "20274B")).padding(.bottom)
             Text("Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum.").padding([.leading, .trailing], 40)
             
             HStack{
@@ -32,19 +27,18 @@ struct thirdScreen: View {
 
                 progressCircle(enterColor: gray)
                 progressCircle(enterColor: gray)
-                progressCircle(enterColor: darkBlue)
+                progressCircle(enterColor: Color(hexString: "20274B"))
                 progressCircle(enterColor: gray)
-                
+                Text("Skip").frame(width: 44, height: 44, alignment: .center).foregroundColor(Color(hexString: "8A8A8E")).onTapGesture {
+                    withAnimation {
+                        clickedIndex.indexClicked = 3
+                    }
+                }
                 Spacer()
             }.padding(20)
-            HStack{
-                Button(action: {
-                    clickedIndex.indexClicked = 3
-                }){
-                Text("Skip").foregroundColor(Color(red: 0.035, green: 0.098, blue: 0.159)).bold()
-                }
-                Image(systemName: "arrow.right").foregroundColor(Color(red: 0.0, green: 0.4392156862745098, blue: 0.7529411764705882, opacity: 1.0))
-            }.padding()
+            
+            Spacer()
+
         }
     }
 }

@@ -14,49 +14,57 @@ struct firstPage: View{
     @State var darkBlue = Color(red: 0.0, green: 0.4392156862745098, blue: 0.7529411764705882, opacity: 1.0)
     @State var gray = Color(red: 0.8980392156862745, green: 0.8980392156862745, blue: 0.8980392156862745)
     
+    @State var name: String = ""
     var body: some View {
         VStack{
-//            HStack{
-//                Spacer()
-//                HStack{
-//                Text("Skip").foregroundColor(Color(red: 0.035, green: 0.098, blue: 0.159)).bold()
-//                Image(systemName: "arrow.right").foregroundColor(darkBlue)
-//                }.padding(.horizontal)
-//            }
+
             ZStack{
-                Rectangle().aspectRatio(1, contentMode: .fit).cornerRadius(5).padding(50).shadow(color: Color.black.opacity(0.5), radius: 2, x: 0, y: 5).cornerRadius(5).foregroundColor(Color(red: 0.8666666666666667, green: 0.9176470588235294, blue: 0.9529411764705882)).overlay{
-                    
-                    Image(systemName: "photo").resizable()
-                        .foregroundColor(Color.gray).frame(width: 50, height: 50).padding().aspectRatio(1.0, contentMode: .fit)
-                    //Probably add image ilogo here
-                }
+                Rectangle().aspectRatio(1, contentMode: .fit).cornerRadius(24).padding(50).cornerRadius(24).foregroundColor(Color(hexString: "e5e5ea"))
+            }
+            HStack{
+            Text("Welcome to Open").font(.title).fontWeight(.bold).foregroundColor(Color(hexString: "20274B")).padding(.bottom).font(Font.custom("AvenirLTStd-Black", size: 17))
+                Text("Vote").font(.title).fontWeight(.bold).foregroundColor(Color(hexString: "0070C0")).padding(.bottom).font(Font.custom("AvenirLTStd-Black", size: 17)).padding(-8)
+            Text(".").font(.title).fontWeight(.bold).foregroundColor(Color(hexString: "20274B")).padding(.bottom).font(Font.custom("AvenirLTStd-Black", size: 17))
+            }
+            VStack{
+            Text("Please enter your name below.").padding([.leading, .trailing], 40)
+                Text("(We take privacy seriously, and your information never leavesthis device)").font(Font.custom("AvenirLTStd-Black", size: 9)).padding(5)
+                
+                TextField("Name", text: $name).textFieldStyle(RoundedBorderTextFieldStyle()).padding([.horizontal], 60)
+                    .padding()
             }
             
-            Text("Welcome to OpenVote.").font(.title).fontWeight(.bold).foregroundColor(Color(red: 0.0, green: 0.4392156862745098, blue: 0.7529411764705882, opacity: 1.0)).padding(.bottom).font(Font.custom("AvenirLTStd-Black", size: 17))
-            Text("Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum.").padding([.leading, .trailing], 40)
-            
             HStack{
                 Spacer()
-//
-//                Circle().frame(width: 15, height: 15).foregroundColor(Color(red: 0.0, green: 0.4392156862745098, blue: 0.7529411764705882, opacity: 1.0)).padding(8)
-//                Circle().frame(width: 15, height: 15).foregroundColor(Color(red: 0.8980392156862745, green: 0.8980392156862745, blue: 0.8980392156862745)).padding(8)
-//                Circle().frame(width: 15, height: 15).foregroundColor(Color(red: 0.8980392156862745, green: 0.8980392156862745, blue: 0.8980392156862745)).padding(8)
-//                Circle().frame(width: 15, height: 15).foregroundColor(Color(red: 0.8980392156862745, green: 0.8980392156862745, blue: 0.8980392156862745)).padding(8)
-                progressCircle(enterColor: darkBlue)
+
+                progressCircle(enterColor: Color(hexString: "20274B"))
                 progressCircle(enterColor: gray)
                 progressCircle(enterColor: gray)
                 progressCircle(enterColor: gray)
-                
+                Circle().frame(width: 22, height: 22).foregroundColor(Color(hexString: "20274B")).padding(8).overlay{
+                    Image(systemName: "arrow.right").foregroundColor(Color.white)
+                    
+                }.onTapGesture {
+                    //Save name to globalVar
+                    clickedIndex.userName = name
+                    print(clickedIndex.userName)
+                    withAnimation {
+                        clickedIndex.indexClicked = 1
+                    }
+                    
+                    
+                }
                 Spacer()
             }.padding(20)
-            HStack{
-                Button(action: {
-                    clickedIndex.indexClicked = 3
-                }){
-                Text("Skip").foregroundColor(Color(red: 0.035, green: 0.098, blue: 0.159)).bold()
-                }
-                Image(systemName: "arrow.right").foregroundColor(Color(red: 0.0, green: 0.4392156862745098, blue: 0.7529411764705882, opacity: 1.0))
-            }.padding()
+            Spacer()
+//            HStack{
+//                Button(action: {
+//                    clickedIndex.indexClicked = 3
+//                }){
+//                Text("Skip").foregroundColor(Color(red: 0.035, green: 0.098, blue: 0.159)).bold()
+//                }
+//                Image(systemName: "arrow.right").foregroundColor(Color(red: 0.0, green: 0.4392156862745098, blue: 0.7529411764705882, opacity: 1.0))
+//            }.padding()
         }
     }
 }

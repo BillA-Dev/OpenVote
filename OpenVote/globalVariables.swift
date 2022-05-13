@@ -33,6 +33,7 @@ class GlobalVariables: ObservableObject{
     
     @Published var HouseLegislatorName: [String] = []
     
+    @Published var userName: String = ""
     
     func getLegislators(){
         

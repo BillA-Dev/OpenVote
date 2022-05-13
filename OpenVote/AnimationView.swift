@@ -46,6 +46,7 @@ struct AnimationView: View {
                                     
                                     if checked{
                                         globalVar.tutorialSkipped = true
+                                        //isNotPresented = true
                                     }else{
                                         isNotPresented = true
                                     }
@@ -68,11 +69,19 @@ struct AnimationView: View {
                 
                 Image("logo").padding().opacity(logoopacity).animation(.easeInOut(duration: 0.9), value: logoopacity)
             }
+            
+            
+            //Change this to true when done
+            
+            /*
+             .sheet(isPresented: $isNotPresented, onDismiss: nil){
+             */
         }.sheet(isPresented: $isNotPresented, onDismiss: nil){
             ContentView() //Tutorial View
                 .interactiveDismissDisabled(true)
         }
         .onAppear {
+            
             DispatchQueue.main.async {
                 //This runs API
                 globalVar.independentExpend()

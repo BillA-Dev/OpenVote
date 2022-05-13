@@ -19,7 +19,17 @@ struct HomeScreen: View {
     @State var selection: Int = 0
     
     @State var color = [Color.red, Color.blue, Color.orange, Color.black, Color.gray, Color.green]
+    
+    @State var nameOfPerson: String = "Null"
+    init(){
+        if let name = UserDefaults.standard.string(forKey: "privateUserName"){
+            nameOfPerson = name
+        }
+    }
     var body: some View {
+        
+        VStack{
+        Text("Good Morning, \(nameOfPerson)")
         TabView(selection: $selection){
             ForEach(0...5, id:\.self){ x in
                 
@@ -28,10 +38,12 @@ struct HomeScreen: View {
             
             
         }.tabViewStyle(PageTabViewStyle())
-            .onAppear {
+        .onAppear {
                
+                
                 //Schedule Timer
-                 
+               
+                
                 Timer.scheduledTimer(withTimeInterval: 8, repeats: true) { Timer in
                     withAnimation(Animation.easeIn(duration: 4.0)){
                         
@@ -50,6 +62,7 @@ struct HomeScreen: View {
                     
                 
             }
+        }
     }
 }
 

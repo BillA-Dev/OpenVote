@@ -14,7 +14,7 @@ struct progressCircle: View {
         color = c
     }
     var body: some View{
-        Circle().frame(width: 15, height: 15).foregroundColor(color).padding(8)
+        Circle().frame(width: 8, height: 8).foregroundColor(color).padding(8)
     }
     
 }
