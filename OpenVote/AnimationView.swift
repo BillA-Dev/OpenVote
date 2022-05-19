@@ -16,6 +16,8 @@ struct AnimationView: View {
     
     @EnvironmentObject var globalVar: GlobalVariables
     
+    
+    
     var body: some View {
        
         ZStack{
@@ -42,7 +44,7 @@ struct AnimationView: View {
                                 logoopacity = 1.0
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.9){
                                     //IF ALREADY CLICKED IS NOT PRESENTED SKIP
-                                    let checked = UserDefaults.standard.bool(forKey: "hasDoneTut")
+                                    let checked = UserDefaults.standard.bool(forKey: "tutSkipped2")
                                     
                                     if checked{
                                         globalVar.tutorialSkipped = true

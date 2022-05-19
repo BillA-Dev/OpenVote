@@ -17,7 +17,7 @@ struct firstPage: View{
     @State var name: String = ""
     var body: some View {
         VStack{
-
+            //This error needs to be fixed; the bug could become a feautre if need be however we need to figure out a way to filter through the tutorial screens and make it dynamic. This would make it easier on the long run and will increase the efficeny of the code. I would like to point out that while efficeincy will increase we would also need to 
             ZStack{
                 Rectangle().aspectRatio(1, contentMode: .fit).cornerRadius(24).padding(50).cornerRadius(24).foregroundColor(Color(hexString: "e5e5ea"))
             }
@@ -41,30 +41,23 @@ struct firstPage: View{
                 progressCircle(enterColor: gray)
                 progressCircle(enterColor: gray)
                 progressCircle(enterColor: gray)
-                Circle().frame(width: 22, height: 22).foregroundColor(Color(hexString: "20274B")).padding(8).overlay{
-                    Image(systemName: "arrow.right").foregroundColor(Color.white)
-                    
-                }.onTapGesture {
-                    //Save name to globalVar
+                Button(action:{
                     clickedIndex.userName = name
                     print(clickedIndex.userName)
                     withAnimation {
                         clickedIndex.indexClicked = 1
                     }
-                    
-                    
-                }
+                }){
+                    Circle().frame(width: 22, height: 22).foregroundColor(Color(hexString: "20274B")).padding(8).overlay{
+                        Image(systemName: "arrow.right").foregroundColor(Color.white)
+                        
+                    }
+                }.disabled(name.isEmpty)
+                
                 Spacer()
             }.padding(20)
             Spacer()
-//            HStack{
-//                Button(action: {
-//                    clickedIndex.indexClicked = 3
-//                }){
-//                Text("Skip").foregroundColor(Color(red: 0.035, green: 0.098, blue: 0.159)).bold()
-//                }
-//                Image(systemName: "arrow.right").foregroundColor(Color(red: 0.0, green: 0.4392156862745098, blue: 0.7529411764705882, opacity: 1.0))
-//            }.padding()
+
         }
     }
 }

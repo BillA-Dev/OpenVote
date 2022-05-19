@@ -51,6 +51,7 @@ class GlobalVariables: ObservableObject{
         URLSession.shared.dataTask(with: r){ data, response, error in
             
             do{
+                print(response)
                 let dict = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: AnyObject]
                 
                 let results = dict["results"] as! NSArray
@@ -97,6 +98,7 @@ class GlobalVariables: ObservableObject{
         
         
     }
+    
     
     
     func independentExpend(){

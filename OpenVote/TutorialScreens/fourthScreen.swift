@@ -16,6 +16,9 @@ struct fourthScreen: View {
     @State var darkBlue = Color(red: 0.0, green: 0.4392156862745098, blue: 0.7529411764705882, opacity: 1.0)
     @State var gray = Color(red: 0.8980392156862745, green: 0.8980392156862745, blue: 0.8980392156862745)
     
+    
+    
+    
     var body: some View {
         VStack{
             ZStack{
@@ -36,12 +39,13 @@ struct fourthScreen: View {
                 progressCircle(enterColor: Color(hexString: "20274B"))
                 Text("Done").frame(width: 44, height: 44, alignment: .center).foregroundColor(Color(hexString: "8A8A8E")).onTapGesture {
                     //clickedIndex.indexClicked = 3
-                    print("Clicked")
+                    print("Clicked last screen")
                     
-                  //  clickedIndex.tutorialSkipped = true
+                    clickedIndex.tutorialSkipped = true
                    
-                    UserDefaults.standard.set(true, forKey: "hasDoneTut")
+                    UserDefaults.standard.set(true, forKey: "tutSkipped2")
                     
+                    print(clickedIndex.userName)
                     UserDefaults.standard.set(clickedIndex.userName, forKey: "privateUserName")
                     
                     withAnimation {

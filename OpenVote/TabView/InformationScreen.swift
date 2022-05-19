@@ -27,7 +27,11 @@ struct filterScreen: View{
     init(){
         numberForm.numberStyle = .currency
         numberForm.maximumFractionDigits = 0
-        //UserDefaults.resetStandardUserDefaults()
+//        UserDefaults.resetStandardUserDefaults()
+//        print("USERDEFUALTfsdf")
+        //UserDefaults.standard.bool(forKey: "hasDoneTut")
+        UserDefaults.standard.set(false, forKey: "hasDoneTut")
+        print( UserDefaults.standard.set(false, forKey: "hasDoneTut"))
         
     }
     
