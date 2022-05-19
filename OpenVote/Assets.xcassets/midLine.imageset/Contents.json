@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "midLine.png",
+      "filename" : "midLine@1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "midLine@2x.png",
+      "filename" : "midLine@2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
