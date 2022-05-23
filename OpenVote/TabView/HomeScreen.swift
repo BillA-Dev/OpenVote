@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-let chartStyle = ChartStyle(backgroundColor: Color.white, accentColor: Colors.openvoteGradientDarkBlue, secondGradientColor: Colors.openvoteGradientLightBlue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Colors.openvoteGray)
 
-let chartStyleDarkGradient = ChartStyle(backgroundColor: Color.white, accentColor: Colors.openvoteBlue, secondGradientColor: Colors.openvoteGradientDarkBlue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Colors.openvoteGray)
-
-let chartStyleDark = ChartStyle(backgroundColor: Color.white, accentColor: Colors.openvoteBlue, secondGradientColor: Colors.openvoteBlue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Colors.openvoteGray)
 
 struct rectangle: View{
     var color: Color
@@ -46,12 +42,7 @@ struct customTabBar: View{
                     print(indexOfArr)
                 }
             }
-           
-        }
-        VStack {
-            BarChartView(data: ChartData(values: [("2018 Q4",63150), ("2019 Q1",50900), ("2019 Q2",77550), ("2019 Q3",79600)]), title: "Nancy Pelosi (Contributions)", style: chartStyleDark, form: ChartForm.large, cornerImage: Image("OpenVoteIcon"), valueSpecifier: "%.0f", animatedToBack: true).overlay(
-            RoundedRectangle(cornerRadius: 16)
-                .stroke(Colors.openvoteGray, lineWidth: 2)).padding(10)
+            
         }
     }
 }

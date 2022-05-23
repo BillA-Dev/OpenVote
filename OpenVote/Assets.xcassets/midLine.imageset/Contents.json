@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "midLine@1.png",
+      "filename" : "Line 7.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "midLine@2.png",
+      "filename" : "Line 7-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "midLine@3x.png",
+      "filename" : "Line 7-3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
