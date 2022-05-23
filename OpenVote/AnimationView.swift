@@ -37,7 +37,7 @@ struct AnimationView: View {
                             Image("Circle").offset(x: -startingOffset, y: 0)
                             
                             let _ = DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                                startingOffset = 35
+                                startingOffset = 35.15
                             }
                             let _ = DispatchQueue.main.asyncAfter(deadline: .now() + (0.5 + 1.8)){
                                 opacity = 1.0
