@@ -48,10 +48,7 @@ struct customTabBar: View{
 }
 
 
-struct item{
-    var amount: String
-    var description: String
-}
+
 struct HomeScreen: View {
     @State var selection: Int = 0
     

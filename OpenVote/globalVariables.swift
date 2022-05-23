@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct item{
+    var amount: String
+    var description: String
+}
+
+
 class GlobalVariables: ObservableObject{
     @Published var indexClicked: Int = 0
     @Published var searchText: String = ""
@@ -34,6 +40,57 @@ class GlobalVariables: ObservableObject{
     @Published var HouseLegislatorName: [String] = []
     
     @Published var userName: String = ""
+    
+    
+    //[name: [date: [ammount]]
+    @Published var dictOfNames: [String: [String: [item]]] = [:]
+    
+    
+    
+    func getStockData(){
+        
+        URLSession.shared.dataTask(with: URL(string: "https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.json")!){ data, response, error in
+                do{
+                    let dict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSArray
+                    for l in dict! {
+                        
+                        //Needed Info
+                        let x = l as! [String: AnyObject]
+                        let rep = x["representative"] as! String
+                        let discDate = x["disclosure_date"] as! String
+                        let amount = x["amount"] as! String
+                        var desc = "NULL"
+                        if x["asset_description"] is NSNull{
+                        desc = "Null"
+                        }else{
+                        desc = x["asset_description"] as! String
+                        }
+                        
+                        DispatchQueue.main.async {
+                            
+                        
+                        if self.dictOfNames[rep] != nil{
+                            if self.dictOfNames[rep]![discDate] != nil{
+                                self.dictOfNames[rep]![discDate]!.append(item(amount: amount, description: desc))
+                            }else{
+                                self.dictOfNames[rep] = [discDate : [item(amount: amount, description: desc)]]
+                            }
+                        }else{
+                            self.dictOfNames[rep] = [discDate : [item(amount: amount, description: desc)]]
+                        }
+                        
+                        }
+                    
+                       
+                    }
+                }catch{
+                    fatalError("FAILED")
+                }
+            }.resume()
+            
+           
+            
+    }
     
     func getLegislators(){
         

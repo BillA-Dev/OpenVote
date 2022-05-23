@@ -19,6 +19,7 @@ struct OpenVoteApp: App {
             if envObj.tutorialSkipped{
                 ActivityView()
                     .environmentObject(envObj)
+                    
             }else{
                 AnimationView()
                 .environmentObject(envObj)
