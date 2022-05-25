@@ -47,10 +47,11 @@ struct customTabBar: View{
     }
 }
 
+/*
 enum quarter: CaseIterable{
     case q42020, q12021, q22021, q32021, q42021, q12022, q22022
 }
-
+*/
 
 struct HomeScreen: View {
     @State var selection: Int = 0
@@ -59,21 +60,13 @@ struct HomeScreen: View {
     
     @State var nameOfPerson: String = "Null"
     
-    
     @State var arrOfRect: [rectangle] = []
-    
-    
-    
-    
     
     @State var dictOfNames: [String: [String: [item]]] = [:]
     
     
     @EnvironmentObject var globalVar: GlobalVariables
    
-   
-    
-    
     @State var chartData: [(String, Int)] = []
     
     
@@ -82,7 +75,8 @@ struct HomeScreen: View {
     var body: some View {
         
         VStack{
-            Text("Good Morning, \(nameOfPerson)")
+            
+            Text("Hi there, \(nameOfPerson)")
             
                     TabView(selection: $selection){
                         
@@ -90,8 +84,8 @@ struct HomeScreen: View {
                         BarChartView(data: ChartData(values: chartData), title: "Nancy Pelosi (Contributions)", style: chartStyleDark, form: ChartForm.large, cornerImage: Image("OpenVoteIcon"), valueSpecifier: "%.0f", animatedToBack: true).overlay(
                                     RoundedRectangle(cornerRadius: 16)
                                         .stroke(Colors.openvoteGray, lineWidth: 2)).padding(10)
-                            
-                            
+                        
+
                         }
             
             
@@ -155,46 +149,46 @@ struct HomeScreen: View {
                         let year = String(Calendar.current.component(.year, from: dateForm))
                         
                         if (1<=month&&3>=month){
-                            if chartData.contains(where: {$0.0 == "q1\(year)"}){
-                                if let index = chartData.firstIndex(where: {$0.0 == "q1\(year)"}){
+                            if chartData.contains(where: {$0.0 == "Q1 | \(year)"}){
+                                if let index = chartData.firstIndex(where: {$0.0 == "Q1 | \(year)"}){
                                 chartData[index].1 += globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count
                                 }
                             }else{
-                                chartData.append(("q1\(year)", globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count))
+                                chartData.append(("Q1 | \(year)", globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count))
                             }
                             
                             
                         }else if (4<=month&&6>=month){
                             
-                            if chartData.contains(where: {$0.0 == "q2\(year)"}){
-                                if let index = chartData.firstIndex(where: {$0.0 == "q2\(year)"}){
+                            if chartData.contains(where: {$0.0 == "Q2 | \(year)"}){
+                                if let index = chartData.firstIndex(where: {$0.0 == "Q2 | \(year)"}){
                                 chartData[index].1 += globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count
                                 }
                             }else{
-                                chartData.append(("q2\(year)", globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count))
+                                chartData.append(("Q2 | \(year)", globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count))
                             }
                             
                             
                         
                         }else if (7<=month&&9>=month){
                             
-                            if chartData.contains(where: {$0.0 == "q3\(year)"}){
-                                if let index = chartData.firstIndex(where: {$0.0 == "q3\(year)"}){
+                            if chartData.contains(where: {$0.0 == "Q3 | \(year)"}){
+                                if let index = chartData.firstIndex(where: {$0.0 == "Q3 | \(year)"}){
                                 chartData[index].1 += globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count
                                 }
                             }else{
-                                chartData.append(("q3\(year)", globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count))
+                                chartData.append(("Q3 | \(year)", globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count))
                             }
                             
                             
                            
                         }else{
-                            if chartData.contains(where: {$0.0 == "q4\(year)"}){
-                                if let index = chartData.firstIndex(where: {$0.0 == "q4\(year)"}){
+                            if chartData.contains(where: {$0.0 == "Q4 | \(year)"}){
+                                if let index = chartData.firstIndex(where: {$0.0 == "Q4 | \(year)"}){
                                 chartData[index].1 += globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count
                                 }
                             }else{
-                                chartData.append(("q4\(year)", globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count))
+                                chartData.append(("Q4 | \(year)", globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count))
                             }
                             
                             
@@ -202,6 +196,8 @@ struct HomeScreen: View {
                         
                     }
 
+                    chartData.removeFirst()
+                    chartData.removeFirst()
                     print(chartData)
                     
                     
