@@ -88,7 +88,7 @@ struct AnimationView: View {
                 //This runs API
                 globalVar.independentExpend()
                 globalVar.getLegislators()
-                
+               globalVar.getStockData()
             }
         }
         

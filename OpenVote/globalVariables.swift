@@ -51,6 +51,8 @@ class GlobalVariables: ObservableObject{
         
         URLSession.shared.dataTask(with: URL(string: "https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.json")!){ data, response, error in
                 do{
+                    
+                  
                     let dict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSArray
                     for l in dict! {
                         
@@ -73,7 +75,7 @@ class GlobalVariables: ObservableObject{
                             if self.dictOfNames[rep]![discDate] != nil{
                                 self.dictOfNames[rep]![discDate]!.append(item(amount: amount, description: desc))
                             }else{
-                                self.dictOfNames[rep] = [discDate : [item(amount: amount, description: desc)]]
+                                self.dictOfNames[rep]![discDate] = [item(amount: amount, description: desc)]
                             }
                         }else{
                             self.dictOfNames[rep] = [discDate : [item(amount: amount, description: desc)]]
@@ -83,6 +85,7 @@ class GlobalVariables: ObservableObject{
                     
                        
                     }
+                    print("Done")
                 }catch{
                     fatalError("FAILED")
                 }
@@ -127,7 +130,12 @@ class GlobalVariables: ObservableObject{
             
         }.resume()
         
+        
         url = URL(string: "https://api.propublica.org/congress/v1/117/senate/members.json")!
+        r = URLRequest(url: url)
+        r.httpMethod = "GET"
+        r.setValue(apiKey, forHTTPHeaderField: "X-API-Key")
+        
         URLSession.shared.dataTask(with: r){ data, response, error in
             
             do{

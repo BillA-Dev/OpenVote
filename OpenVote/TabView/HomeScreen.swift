@@ -47,6 +47,9 @@ struct customTabBar: View{
     }
 }
 
+enum quarter: CaseIterable{
+    case q42020, q12021, q22021, q32021, q42021, q12022, q22022
+}
 
 
 struct HomeScreen: View {
@@ -66,64 +69,33 @@ struct HomeScreen: View {
     @State var dictOfNames: [String: [String: [item]]] = [:]
     
     
-    
+    @EnvironmentObject var globalVar: GlobalVariables
    
+   
+    
+    
+    @State var chartData: [(String, Int)] = []
+    
+    
+    @State var chartStyleDark = ChartStyle(backgroundColor: Color.white, accentColor: Colors.openvoteBlue, secondGradientColor: Colors.openvoteBlue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Colors.openvoteGray)
     
     var body: some View {
         
         VStack{
-            Text("Good Morning, \(nameOfPerson)").onTapGesture {
-                URLSession.shared.dataTask(with: URL(string: "https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.json")!){data, response, error in
-                    do{
-                       
-                        var dict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSArray
-                        for l in dict! {
-                            
-                            //Needed Info
-                            let x = l as! [String: AnyObject]
-                            let rep = x["representative"] as! String
-                            let discDate = x["disclosure_date"] as! String
-                            let amount = x["amount"] as! String
-                            var desc = "NULL"
-                            if x["asset_description"] is NSNull{
-                            desc = "Null"
-                            }else{
-                            desc = x["asset_description"] as! String
-                            }
-                            
-                            
-                            if dictOfNames[rep] != nil{
-                                if dictOfNames[rep]![discDate] != nil{
-                                    dictOfNames[rep]![discDate]!.append(item(amount: amount, description: desc))
-                                }else{
-                                    dictOfNames[rep] = [discDate : [item(amount: amount, description: desc)]]
-                                }
-                            }else{
-                                dictOfNames[rep] = [discDate : [item(amount: amount, description: desc)]]
-                            }
-                            
-                            
-                        
-                           
-                        }
-                    }catch{
-                        fatalError("FAILED")
-                    }
-                }.resume()
-                
-               
-                
-            }
+            Text("Good Morning, \(nameOfPerson)")
             
-            customTabBar(arrOfRect: $arrOfRect)
-            //        TabView(selection: $selection){
-            //            ForEach(0...5, id:\.self){ x in
-            //
-            //                rectangle(color: color[x]).tag(x)
-            //            }
-            //
-            //
-            //        }.tabViewStyle(PageTabViewStyle())
+                    TabView(selection: $selection){
+                        
+                       //I know what I have to do however I dont know
+                        BarChartView(data: ChartData(values: chartData), title: "Nancy Pelosi (Contributions)", style: chartStyleDark, form: ChartForm.large, cornerImage: Image("OpenVoteIcon"), valueSpecifier: "%.0f", animatedToBack: true).overlay(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .stroke(Colors.openvoteGray, lineWidth: 2)).padding(10)
+                            
+                            
+                        }
+            
+            
+                    }.tabViewStyle(PageTabViewStyle())
                 .onAppear {
                     
                     if let name = UserDefaults.standard.string(forKey: "privateUserName"){
@@ -131,11 +103,11 @@ struct HomeScreen: View {
                     }
                     
                    
-                    for x in 0...5{
-                        print("IS THIS WORKING")
-                        arrOfRect.append(rectangle(color: color[x]))
-                        
-                    }
+//                    for x in 0...5{
+//                        print("IS THIS WORKING")
+//                        arrOfRect.append(rectangle(color: color[x]))
+//
+//                    }
                     
                     //Schedule Timer
                     
@@ -157,8 +129,92 @@ struct HomeScreen: View {
                     
                     
                     
+                }.onAppear {
+                    
+                   
+                    for date in Array(globalVar.dictOfNames["Hon. Nancy Pelosi"]!.keys).sorted(by: { $0.stringToDate().compare($1.stringToDate()) == .orderedAscending })
+{
+                        print(date)
+                       
+                        var countOfTrans = globalVar.dictOfNames[date]?.count
+                        
+                        
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MM/dd/yyyy"
+                        let dateForm = dateFormatter.date(from: date)!
+                        
+                        //Fix this
+                        
+                        let month = Double(Calendar.current.component(.month, from: dateForm))
+                        
+                        
+                      
+                        
+                        
+                        
+                        let year = String(Calendar.current.component(.year, from: dateForm))
+                        
+                        if (1<=month&&3>=month){
+                            if chartData.contains(where: {$0.0 == "q1\(year)"}){
+                                if let index = chartData.firstIndex(where: {$0.0 == "q1\(year)"}){
+                                chartData[index].1 += globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count
+                                }
+                            }else{
+                                chartData.append(("q1\(year)", globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count))
+                            }
+                            
+                            
+                        }else if (4<=month&&6>=month){
+                            
+                            if chartData.contains(where: {$0.0 == "q2\(year)"}){
+                                if let index = chartData.firstIndex(where: {$0.0 == "q2\(year)"}){
+                                chartData[index].1 += globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count
+                                }
+                            }else{
+                                chartData.append(("q2\(year)", globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count))
+                            }
+                            
+                            
+                        
+                        }else if (7<=month&&9>=month){
+                            
+                            if chartData.contains(where: {$0.0 == "q3\(year)"}){
+                                if let index = chartData.firstIndex(where: {$0.0 == "q3\(year)"}){
+                                chartData[index].1 += globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count
+                                }
+                            }else{
+                                chartData.append(("q3\(year)", globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count))
+                            }
+                            
+                            
+                           
+                        }else{
+                            if chartData.contains(where: {$0.0 == "q4\(year)"}){
+                                if let index = chartData.firstIndex(where: {$0.0 == "q4\(year)"}){
+                                chartData[index].1 += globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count
+                                }
+                            }else{
+                                chartData.append(("q4\(year)", globalVar.dictOfNames["Hon. Nancy Pelosi"]![date]!.count))
+                            }
+                            
+                            
+                        }
+                        
+                    }
+
+                    print(chartData)
+                    
+                    
                 }
         }
+    }
+
+
+extension String{
+    func stringToDate() -> Date{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        return dateFormatter.date(from: self)!
     }
 }
 
