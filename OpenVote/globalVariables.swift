@@ -47,7 +47,10 @@ class GlobalVariables: ObservableObject{
     
     
     
-    func getStockData(){
+    
+    @Published var stockDataDoneLoading: Bool = false
+    
+    func getStockData(completed: @escaping (_:Bool) -> Void){
         
         URLSession.shared.dataTask(with: URL(string: "https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.json")!){ data, response, error in
                 do{
@@ -85,7 +88,7 @@ class GlobalVariables: ObservableObject{
                     
                        
                     }
-                    print("Done")
+                    completed(true)
                 }catch{
                     fatalError("FAILED")
                 }

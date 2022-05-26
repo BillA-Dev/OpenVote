@@ -34,7 +34,7 @@ public struct Colors {
     public static let openvoteGradientLightBlue: Color = Color(hexString: "#4CC9E6")
     public static let openvoteGradientDarkBlue: Color = Color(hexString: "#0F72DD")
     public static let openvoteGradientDarkerBlue: Color = Color(hexString: "#162182")
-  
+    public static let redactedGray: Color = Color(hexString: "#D6D6D6")
     
 }
 

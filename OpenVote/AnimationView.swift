@@ -88,7 +88,16 @@ struct AnimationView: View {
                 //This runs API
                 globalVar.independentExpend()
                 globalVar.getLegislators()
-               globalVar.getStockData()
+                globalVar.getStockData(){ x in
+                    if x{
+                        DispatchQueue.main.async {
+                            globalVar.stockDataDoneLoading = false
+                            print("CHANGED TO TRUE \(globalVar.stockDataDoneLoading)")
+                        }
+                      
+                       
+                    }
+                }
             }
         }
         
