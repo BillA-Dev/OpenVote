@@ -112,7 +112,7 @@ struct HomeScreen: View {
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                .frame(width: UIScreen.main.bounds.width/1.3, height: UIScreen.main.bounds.height/6).padding(20)
+                .frame(width: UIScreen.main.bounds.width/1.25, height: UIScreen.main.bounds.height/6).padding(20)
                 .border(Color.black)
                 
             }else{
@@ -126,7 +126,9 @@ struct HomeScreen: View {
                 Text("/How it works").foregroundColor(Color(hexString: "C2C2C2")).padding(-5)
             }
             //Main Screen
-            RoundedRectangle(cornerRadius: 17).frame(width: UIScreen.main.bounds.width/1.5, height: UIScreen.main.bounds.height/6.5)
+            RoundedRectangle(cornerRadius: 17).frame(width: UIScreen.main.bounds.width/1.5, height: UIScreen.main.bounds.height/6.5).foregroundColor(Color(hexString: "f8f8f8")).overlay{
+                RoundedRectangle(cornerRadius: 17).stroke(lineWidth: 4).frame(width: UIScreen.main.bounds.width/1.5, height: UIScreen.main.bounds.height/6.5).foregroundColor(Color(hexString: "efefef"))
+            }
             
             
            
