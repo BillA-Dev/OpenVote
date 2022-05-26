@@ -49,10 +49,10 @@ struct tabBar: View{
         HStack{
             //Fix the page selection
             itemOfTabBar(imageName: "homepage", page: .home).padding(.bottom).shadow(radius: 5)
-            itemOfTabBar(imageName: "candidateview", page: .canView).padding(.bottom).shadow(radius: 5)
-            itemOfTabBar(imageName: "graphview", page: .graphView).padding(.bottom).shadow(radius: 5)
+            // itemOfTabBar(imageName: "candidateview", page: .canView).padding(.bottom).shadow(radius: 5)
+            // itemOfTabBar(imageName: "graphview", page: .graphView).padding(.bottom).shadow(radius: 5)
             itemOfTabBar(imageName: "recentactivity", page: .activity).padding(.bottom).shadow(radius: 5)
-            itemOfTabBar(imageName: "pacview", page: .PAC).padding(.bottom).shadow(radius: 5)
+            // itemOfTabBar(imageName: "pacview", page: .PAC).padding(.bottom).shadow(radius: 5)
             
             
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/10).background(

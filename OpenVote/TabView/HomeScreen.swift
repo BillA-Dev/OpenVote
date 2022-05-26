@@ -86,10 +86,10 @@ struct HomeScreen: View {
         
         VStack{
             
-            Text("Hi there, \(nameOfPerson).").font(.title)
+            Text("Hi there, \(nameOfPerson).").font(.title).bold()
             HStack{
                 Text("Trading Summary").foregroundColor(Color(hexString: "1F274B"))
-                Text("/Major Figures").foregroundColor(Color(hexString: "C2C2C2")).padding(-5)
+                Text("/ Major Figures").foregroundColor(Color(hexString: "C2C2C2")).padding(-5)
             }
             
             if globalVar.stockDataDoneLoading{
@@ -118,17 +118,18 @@ struct HomeScreen: View {
             }else{
                 BarChartView(data: ChartData(values: [("q1", 1), ("q1", 5), ("q1", 3)]), title: "Person (Contributions)", style: redeactedChartStyle, form: ChartForm.large, cornerImage: Image("OpenVoteIcon"), valueSpecifier: "%.0f", animatedToBack: true).overlay(
                     RoundedRectangle(cornerRadius: 16)
-                        .stroke(Colors.openvoteGray, lineWidth: 2)).frame(width: UIScreen.main.bounds.width/1.3, height: UIScreen.main.bounds.height/6.5).padding().redacted(reason: .placeholder)
+                        .stroke(Colors.openvoteGray, lineWidth: 2)).frame(width: UIScreen.main.bounds.width/1.3, height: UIScreen.main.bounds.height/6.5).padding(25)//.redacted(reason: .placeholder)
             }
             
             HStack{
                 Text("Trading Summary").foregroundColor(Color(hexString: "1F274B"))
-                Text("/How it works").foregroundColor(Color(hexString: "C2C2C2")).padding(-5)
+                Text("/ How it works").foregroundColor(Color(hexString: "C2C2C2")).padding(-5)
             }
             //Main Screen
-            RoundedRectangle(cornerRadius: 17).frame(width: UIScreen.main.bounds.width/1.5, height: UIScreen.main.bounds.height/6.5).foregroundColor(Color(hexString: "f8f8f8")).overlay{
-                RoundedRectangle(cornerRadius: 17).stroke(lineWidth: 4).frame(width: UIScreen.main.bounds.width/1.5, height: UIScreen.main.bounds.height/6.5).foregroundColor(Color(hexString: "efefef"))
-            }
+            Image("Group 28")
+            // RoundedRectangle(cornerRadius: 17).frame(width: UIScreen.main.bounds.width/1.5, height: UIScreen.main.bounds.height/6.5).foregroundColor(Color(hexString: "f8f8f8")).overlay{
+               // RoundedRectangle(cornerRadius: 17).stroke(lineWidth: 4).frame(width: UIScreen.main.bounds.width/1.5, height: UIScreen.main.bounds.height/6.5).foregroundColor(Color(hexString: "efefef"))
+            // }
             
             
            
@@ -139,7 +140,7 @@ struct HomeScreen: View {
                         Image("dataComeFromImage").resizable().padding().aspectRatio(contentMode: .fit)
                     }.padding()
                     VStack(alignment: .leading){
-                        Text("Where Does This Data Come From?").font(.system(size: 14))
+                        Text("Where does this data come from?").font(.system(size: 14)).bold()
                         Text("The Stock Trading Congresional Knowledge (STOCK) Act requires U.S representatives to publicly file and disclose any financial transaction within 45 days of occurence").font(.system(size: 11))
                     }.padding()
                 }
@@ -149,7 +150,7 @@ struct HomeScreen: View {
                         Image("Group").resizable().padding().aspectRatio(contentMode: .fit)
                     }.padding()
                     VStack(alignment: .leading){
-                        Text("Where Does This Data Mean?").font(.system(size: 14))
+                        Text("What does this data mean?").font(.system(size: 14)).bold()
                         Text("The graphs show the number of quarterly transactions (purchase/sales) for several representatives").font(.system(size: 11))
                     }.padding()
                 }

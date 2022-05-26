@@ -28,7 +28,7 @@ struct firstPage: View{
             }
             VStack{
             Text("Please enter your name below.").padding([.leading, .trailing], 40)
-                Text("(We take privacy seriously, and your information never leavesthis device)").font(Font.custom("AvenirLTStd-Black", size: 9)).padding(5)
+                Text("(We take privacy seriously, and your information never leaves this device)").font(Font.custom("AvenirLTStd-Black", size: 9)).padding(5)
                 
                 TextField("Name", text: $name).textFieldStyle(RoundedBorderTextFieldStyle()).padding([.horizontal], 60)
                     .padding()
