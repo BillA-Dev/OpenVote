@@ -85,6 +85,9 @@ struct HomeScreen: View {
     
     @State var defualtCarousel = ["Hon. Nancy Pelosi", "Hon. Adam B. Schiff", "Hon. Marjorie Taylor Greene", "Hon. Matt Gaetz"]
     
+    
+    @State var hour = Int(Calendar.current.component(.hour, from: Date()))
+    
     var body: some View {
         
         //Half Finished HomeScreen
@@ -92,7 +95,14 @@ struct HomeScreen: View {
         
         VStack{
             
-            Text("Hi there, \(nameOfPerson).").font(.title).bold()
+            if hour > 4 && hour < 12{
+                Text("Good Morning, \(nameOfPerson).").font(.title).bold()
+            }else if hour > 12 && hour < 17{
+                Text("Good Afternoon, \(nameOfPerson).").font(.title).bold()
+            }else{
+                Text("Good Evening, \(nameOfPerson).").font(.title).bold()
+            }
+            
             HStack{
                 Text("Trading Summary").foregroundColor(Color(hexString: "1F274B"))
                 Text("/ Major Figures").foregroundColor(Color(hexString: "C2C2C2")).padding(-5)
