@@ -133,7 +133,7 @@ struct HomeScreen: View {
                 
             }else{
                 
-                BarChartView(data: ChartData(values: [("q1", 3), ("q1", 7), ("q1", 4), ("q1", 7), ("q1", 5), ("q1", 5)]), title: "Person (Contributions)", style: redeactedChartStyle, form: ChartForm.large, valueSpecifier: "%.0f", animatedToBack: true)
+                BarChartView(data: ChartData(values: [("", 3), ("", 7), ("", 4), ("", 7), ("", 5), ("", 5)]), title: "Person (Contributions)", style: redeactedChartStyle, form: ChartForm.large, valueSpecifier: "%.0f", animatedToBack: true)
                     .skeletonLoading()
                     .overlay(
                     RoundedRectangle(cornerRadius: 16)
