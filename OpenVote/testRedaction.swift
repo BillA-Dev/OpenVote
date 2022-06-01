@@ -34,10 +34,10 @@ struct customRedaction<Content: View>: View{
         ZStack{
             content.redacted(reason: .placeholder)
             
-            LinearGradient(colors: [Color(hexString: "e1e2e2"), Color.black], startPoint: startPoint, endPoint: endPoint).blendMode(.screen)
+            LinearGradient(colors: [Color(hexString: "d7d7d7"), Color.black], startPoint: startPoint, endPoint: endPoint).blendMode(.screen)
                 .onAppear {
                     
-                    withAnimation(Animation.linear(duration: 3).repeatForever(autoreverses: true)) {
+                    withAnimation(Animation.linear(duration: 1.4).repeatForever(autoreverses: true)) {
                         startPoint.x = 1
                         
                         

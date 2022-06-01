@@ -44,6 +44,7 @@ struct firstPage: View{
                 Text("Skip").frame(width: 44, height: 44, alignment: .center).foregroundColor(Color(hexString: "8A8A8E")).onTapGesture {
                     withAnimation {
                         clickedIndex.indexClicked = 3
+                        clickedIndex.userName = name
                     }
                 }
                 Spacer()
