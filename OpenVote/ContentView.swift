@@ -18,6 +18,7 @@ struct ContentView: View {
                 secondScreen().tag(1)
                 thirdScreen().tag(2)
                 fourthScreen().tag(3)
+                //secondScreen().tag(1)
                 
             }
             .tabViewStyle(PageTabViewStyle())
@@ -25,6 +26,23 @@ struct ContentView: View {
         .onChange(of: index.indexClicked){ x in
             print("Changed \(x)")
         }
+    }
+}
+
+
+
+
+
+
+
+
+
+extension UserDefaults{
+    enum Keys: String, CaseIterable{
+        case hasDoneTut, privateUserName, tutSkipped2
+    }
+    func delete(){
+        Keys.allCases.forEach { removeObject(forKey: $0.rawValue)}
     }
 }
 

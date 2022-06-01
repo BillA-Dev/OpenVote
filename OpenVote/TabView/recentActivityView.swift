@@ -30,7 +30,7 @@ struct recentActivityView: View{
     @State var dates: [String] = []
     
     
-    @State var isApiDoneLoading: Bool = false
+    @State var skeletonStillLoading: Bool = true
     
     init(){
         UITableView.appearance().backgroundColor = .white
@@ -55,7 +55,9 @@ struct recentActivityView: View{
         ZStack{
             VStack{
                 
-                Text("Recent Activity").font(.system(size: 25)).bold().padding([.top, .leading, .trailing])
+                Text("Recent Activity").font(.system(size: 25)).bold().padding([.top, .leading, .trailing]).onTapGesture {
+                    UserDefaults.standard.delete()
+                }
                 
                 HStack{
                     
@@ -84,6 +86,8 @@ struct recentActivityView: View{
                     Spacer()
                 }
                 
+                
+                
                 List{
                     ForEach(globalVar.arrayOfPeople.filter({
                         globalVar.searchText.isEmpty ? true: $0.name.contains(globalVar.searchText)
@@ -94,7 +98,7 @@ struct recentActivityView: View{
                         HStack{
                             Circle().frame(width: 55, height: 55).foregroundColor(Color(red: 248/55, green: 248/255, blue: 248/255)).overlay{
                                 
-                                if isApiDoneLoading{
+                                if !skeletonStillLoading{
                                     Image(x.party == "R" ? "republican" : x.party == "D" ? "democratic" :  "independent").resizable().aspectRatio(contentMode: .fit).padding(8)
                                 }
                                 
@@ -126,7 +130,9 @@ struct recentActivityView: View{
                             .listRowSeparator(.hidden)
                         
                     }
-                }.redacted(reason: !isApiDoneLoading ? .placeholder: [])
+                    
+                    //Bind this with isApi done loading
+                }.skeletonLoading(isLoadingDone: $skeletonStillLoading)
                 
                 
                 
@@ -143,15 +149,15 @@ struct recentActivityView: View{
                 
                 
                     .onAppear{
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                            isApiDoneLoading = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8){
+                            skeletonStillLoading = false
                         }
                         filteration.originalArr = globalVar.arrayOfPeople
                         
 //                        print(globalVar.HouseLegislatorName)
                     }
                 
-                    .animation(.easeInOut, value: isApiDoneLoading)
+                    .animation(.easeInOut(duration: 4), value: skeletonStillLoading)
                     .animation(Animation.easeInOut(duration: 2), value: globalVar.isShowingInfoScreen)
                 
             }.blur(radius: globalVar.isShowingInfoScreen ? 3 : globalVar.isShowingFilterScreen ? 3 : 0)

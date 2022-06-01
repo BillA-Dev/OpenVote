@@ -37,25 +37,18 @@ struct firstPage: View{
             HStack{
                 Spacer()
 
+                progressCircle(enterColor: gray)
                 progressCircle(enterColor: Color(hexString: "20274B"))
                 progressCircle(enterColor: gray)
                 progressCircle(enterColor: gray)
-                progressCircle(enterColor: gray)
-                Button(action:{
-                    clickedIndex.userName = name
-                    print(clickedIndex.userName)
+                Text("Skip").frame(width: 44, height: 44, alignment: .center).foregroundColor(Color(hexString: "8A8A8E")).onTapGesture {
                     withAnimation {
-                        clickedIndex.indexClicked = 1
+                        clickedIndex.indexClicked = 3
                     }
-                }){
-                    Circle().frame(width: 22, height: 22).foregroundColor(Color(hexString: "20274B")).padding(8).overlay{
-                        Image(systemName: "arrow.right").foregroundColor(Color.white)
-                        
-                    }
-                }.disabled(name.isEmpty)
-                
+                }
                 Spacer()
             }.padding(20)
+
             Spacer()
 
         }

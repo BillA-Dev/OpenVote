@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C0DE07727F74D69002A33FE /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0DE07627F74D69002A33FE /* ActivityView.swift */; };
+		5C2918072841266A00D14E57 /* testRedaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2918062841266A00D14E57 /* testRedaction.swift */; };
 		5C30BDC0280DB62C007982C9 /* recentActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30BDBF280DB62C007982C9 /* recentActivityView.swift */; };
 		5C30BDC2280DB695007982C9 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30BDC1280DB695007982C9 /* TabBar.swift */; };
 		5C30BDC4280DB6B8007982C9 /* searchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30BDC3280DB6B8007982C9 /* searchBar.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		5C0DE07627F74D69002A33FE /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		5C2918062841266A00D14E57 /* testRedaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testRedaction.swift; sourceTree = "<group>"; };
 		5C30BDBF280DB62C007982C9 /* recentActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recentActivityView.swift; sourceTree = "<group>"; };
 		5C30BDC1280DB695007982C9 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		5C30BDC3280DB6B8007982C9 /* searchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchBar.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				5C7A8BA427E3C726002912C2 /* Preview Content */,
 				5C45CFE627E4E20700BBD7F0 /* globalVariables.swift */,
 				5C45CFE827E54DB400BBD7F0 /* AnimationView.swift */,
+				5C2918062841266A00D14E57 /* testRedaction.swift */,
 			);
 			path = OpenVote;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				5C7A8BA127E3C71E002912C2 /* ContentView.swift in Sources */,
 				5C45CFE727E4E20700BBD7F0 /* globalVariables.swift in Sources */,
 				5CAA6E49283DD13800DC48A8 /* LineView.swift in Sources */,
+				5C2918072841266A00D14E57 /* testRedaction.swift in Sources */,
 				5CAA6E43283DD13800DC48A8 /* Helpers.swift in Sources */,
 				5CAA6E46283DD13800DC48A8 /* PieChartCell.swift in Sources */,
 				5C0DE07727F74D69002A33FE /* ActivityView.swift in Sources */,

@@ -6,6 +6,12 @@
 //
 
 import SwiftUI
+import Network
+ 
+
+
+
+
 
 
 
@@ -112,13 +118,15 @@ struct HomeScreen: View {
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                .frame(width: UIScreen.main.bounds.width/1.25, height: UIScreen.main.bounds.height/6).padding(20)
-                .border(Color.black)
+                .frame(width: UIScreen.main.bounds.width/1.25, height: UIScreen.main.bounds.height/4.5).padding(20)
+                
                 
             }else{
-                BarChartView(data: ChartData(values: [("q1", 1), ("q1", 5), ("q1", 3)]), title: "Person (Contributions)", style: redeactedChartStyle, form: ChartForm.large, cornerImage: Image("OpenVoteIcon"), valueSpecifier: "%.0f", animatedToBack: true).overlay(
+                
+                BarChartView(data: ChartData(values: [("q1", 1), ("q1", 5), ("q1", 3)]), title: "Person (Contributions)", style: redeactedChartStyle, form: ChartForm.large, cornerImage: Image("OpenVoteIcon"), valueSpecifier: "%.0f", animatedToBack: true).skeletonLoading().overlay(
                     RoundedRectangle(cornerRadius: 16)
-                        .stroke(Colors.openvoteGray, lineWidth: 2)).frame(width: UIScreen.main.bounds.width/1.3, height: UIScreen.main.bounds.height/6.5).padding(25)//.redacted(reason: .placeholder)
+                        .stroke(Colors.openvoteGray, lineWidth: 2)).frame(width: UIScreen.main.bounds.width/1.3, height: UIScreen.main.bounds.height/6.5).padding(25)
+                
             }
             
             HStack{

@@ -3,4 +3,54 @@
    uuid = "67633719-33C4-46CE-B43A-7F84A2DA90FD"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "007E5CB4-049C-49D4-BEF2-6B6C295EF3AF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenVote/OpenVoteApp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "007E5CB4-049C-49D4-BEF2-6B6C295EF3AF - 4c820e89a15b0e09"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OpenVote.NetworkMonitor.deinit"
+                  moduleName = "OpenVote"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/90310148/Documents/Apps/OpenVote/OpenVote/OpenVoteApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "007E5CB4-049C-49D4-BEF2-6B6C295EF3AF - 447db8b0fd9238fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OpenVote.NetworkMonitor.__deallocating_deinit"
+                  moduleName = "OpenVote"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/90310148/Documents/Apps/OpenVote/OpenVote/OpenVoteApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
