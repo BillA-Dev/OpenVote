@@ -15,7 +15,8 @@ import Network
 
 
 
-struct rectangle: View{
+struct rectangle: View, Identifiable{
+    var id = UUID()
     var color: Color
     var body: some View{
         Rectangle().frame(height: 200).padding().foregroundColor(color)
@@ -73,6 +74,7 @@ struct HomeScreen: View {
     
     @EnvironmentObject var globalVar: GlobalVariables
     
+    @State var dotSelection: Int = 0
     
     
     
@@ -114,32 +116,56 @@ struct HomeScreen: View {
                     
                     
                     ForEach(Array(zip(defualtCarousel.indices, defualtCarousel)), id: \.0){ index, name in
-                        BarChartView(data: ChartData(values: getChartData(personOfInterest: name)), title: "\(name) (Contributions)", style: chartStyleDark, form: ChartForm.large, cornerImage: Image("OpenVoteIcon"), valueSpecifier: "%.0f", animatedToBack: true).overlay(
+                        
+                       
+                        BarChartView(data: ChartData(values: getChartData(personOfInterest: name)), title: "\(name) (Contributions)", style: chartStyleDark, form: ChartForm.large, cornerImage: Image("OpenVoteIcon"), valueSpecifier: "%.0f", animatedToBack: true)
+                            
+                            .overlay(
                             RoundedRectangle(cornerRadius: 16)
-                                .stroke(Colors.openvoteGray, lineWidth: 2)).frame(width: UIScreen.main.bounds.width/1.3, height: UIScreen.main.bounds.height/6).padding(20).tag(index)
-                                
+                                .stroke(Colors.openvoteGray, lineWidth: 2)
+                            )
+                            .frame(width: UIScreen.main.bounds.width/1.3, height: UIScreen.main.bounds.height/6)
+                            .padding(20)
+                            .tag(index)
+                          
+                        
                     }.frame(width: UIScreen.main.bounds.width/1.3, height: UIScreen.main.bounds.height/6).padding(20)
                     
                     
                     
                     
+                   
                     
                     
-                }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                .frame(width: UIScreen.main.bounds.width/1.25, height: UIScreen.main.bounds.height/4.5).padding(20)
+                }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+               
+                    .frame(width: UIScreen.main.bounds.width/1.25, height: UIScreen.main.bounds.height/4.5).padding(20)
+                
                 
                 
             }else{
                 
-                BarChartView(data: ChartData(values: [("", 3), ("", 7), ("", 4), ("", 7), ("", 5), ("", 5)]), title: "Person (Contributions)", style: redeactedChartStyle, form: ChartForm.large, valueSpecifier: "%.0f", animatedToBack: true)
-                    .skeletonLoading()
+                BarChartView(data: ChartData(values: [("", 3), ("q1", 7), ("q1", 4), ("q1", 7), ("q1", 5), ("q1", 5)]), title: "Person (Contributions)", style: redeactedChartStyle, form: ChartForm.large, valueSpecifier: "%.0f", animatedToBack: true)
+                   // .skeletonLoading()
+                    .startToEndSkeletenLoading()
                     .overlay(
                     RoundedRectangle(cornerRadius: 16)
                         .stroke(Colors.openvoteGray, lineWidth: 2)).frame(width: UIScreen.main.bounds.width/1.3, height: UIScreen.main.bounds.height/6.5).padding(25)
                 
             }
+            
+            HStack(spacing: 10){
+                    
+                ForEach(defualtCarousel.indices, id: \.self){ x in
+                    Circle()
+                        .fill(dotSelection == x ? Colors.openvoteBlue : Colors.openvoteBlue.opacity(0.5)).onTapGesture(perform: {
+                            dotSelection = x
+                            selection = x
+                        })
+                        .frame(width: 10, height: 10)
+                }
+                
+            }.offset(y: -20)
             
             HStack{
                 Text("Trading Summary").foregroundColor(Color(hexString: "1F274B"))
@@ -195,6 +221,14 @@ struct HomeScreen: View {
             
             
             Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { Timer in
+                
+                if selection == defualtCarousel.count{
+                    dotSelection = 0
+                }else{
+                    dotSelection = selection+1
+                }
+               
+                
                 withAnimation(Animation.easeIn(duration: 5)){
                     
                     if selection == defualtCarousel.count{

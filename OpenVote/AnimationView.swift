@@ -91,7 +91,7 @@ struct AnimationView: View {
                 globalVar.getStockData(){ x in
                     if x{
                         DispatchQueue.main.async {
-                            globalVar.stockDataDoneLoading = false
+                            globalVar.stockDataDoneLoading = true
                             print("CHANGED TO TRUE \(globalVar.stockDataDoneLoading)")
                         }
                       

@@ -37,12 +37,24 @@ class GlobalVariables: ObservableObject{
     @Published var sliderAmmount: Float = 1_500_000
     
     
+    
+    
+    //Test this on Core Data
     @Published var HouseLegislatorName: [String] = []
+    
+    
+    
+    
+    
+    
     
     @Published var userName: String = ""
     
     
     //[name: [date: [ammount]]
+    
+    
+    
     @Published var dictOfNames: [String: [String: [item]]] = [:]
     
     
