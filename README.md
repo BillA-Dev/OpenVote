@@ -95,23 +95,39 @@ _More information about our data, including resources to learn about campaign fi
   - Corner icon resizing
 - Skeleton loading
 
-<!-- ![v0 1 1mockups](https://user-images.githubusercontent.com/59670355/162287216-bdb163b4-b6f0-48b6-8309-0f6fb865ad03.png) -->
-### Project Roadmap
-#### Versions 0.1.3
+#### Version 0.1.3
 - Continued Recent Activity screen changes
-  - Sorting function
-  - Rearrange UI
+  - Rearranged UI
+  - New skeleton loading
 - Onboarding screens revamp
   - Name input + ToD greeting
   - Aesthetic changes
 - Homepage creation
-  - Graph carousel
-  - Highlights/previews from other screens
-  - OpenVote announcements*
+  - Custom graph carousel
+  - Custom skeleton loading
+  - Trading data explanation
+  - API optimization
 - App store resources
   - Animated previews
   - Screenshots and mockups
   - Text description + keywords
+  - Approved for App Store release
+- Core data implementation
+
+
+<!-- ![v0 1 1mockups](https://user-images.githubusercontent.com/59670355/162287216-bdb163b4-b6f0-48b6-8309-0f6fb865ad03.png) -->
+### Project Roadmap
+#### Versions 0.2.1
+- Homepage changes
+  - Senate trading data
+  - API optimization
+  - Custom carousels
+- Candidate view
+  - Candidate overview
+  - Expenditure history tracking
+  - UI rework
+- PAC profile page
+- Core data extensions
 
 See the [open issues](https://github.com/BillA-Dev/OpenVote/issues) for a full list of proposed features and known issues.
 
